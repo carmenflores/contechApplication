@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Daily Work Orders</string>
+    <string name="action_settings">Settings</string>
+    <string name = "my_button_text">Date:</string>
+    <string name = "action_new">Date:</string>
+    <item name = "my_button" type="id" />
+    <item name ="insured" type="id" />
+    <item name="fileNumber" type="id" />
+    <item name="room" type="id" />
+    
+    <!-- New Room Activity-->
+    <string name = "choose">Select Needed Fields For Form: </string>   
+    <string name = "rooms_title">Add New Room</string>
+    <item name="name_field" type="id" />
+    <item name="length_field" type="id" />
+    <item name="width_field" type="id" />
+    <item name="height_field" type="id" />
+    <string name = "name_message">Room:</string>
+    <string name = "length_message">Length:</string>
+    <string name = "width_message">Width:</string>
+    <string name = "height_message">Height:</string>
+    <string name = "button_send">Create Form</string>
+    
+    <string name = "insured">Insured : </string>
+    <string name = "date">Date:    (dd/mm/yy)</string>
+    <string name = "fileNumber"> File Number: </string>
+    <string name = "room"> Room: </string>  
+    <string name="waterExtracted">Water Extracted</string>
+    <string name = "carpetToSave">Lift Carpet to Save</string>
+    <string name = "upadRemoved">U/Pad Removed</string>
+    <string name = "carpetRemoved">Carpet Removed</string>
+    <string name = "flooringRemoved">Flooring Removed</string>
+	
+     <string name="students_pref_file_key">com.contech.dailyworkorders.roomsInfo</string>
+	<item name="list" type="id"/>
+	<string name="add_room">Add Room</string>
+	<string name="dialog_positive_new_room">Add Room</string>
+	<string name="form_title">Form</string>
+	<string name="amount">Amount :</string>
+	<string name="address">Address :</string>
+	<string name="source">Source :</string>
+	<string name="class_of_water">Class of Water : </string>
+	<string name="lock_box_installed">Lock Box Installed :</string>
+	<string name="readings_taken">Readings Taken : </string>
+	<string name="photos_taken">Photos Taken : </string>
+	<string name="after_hours_emergency">After Hours Emergency</string>
+	<string name="contents "/>
+	<string name="water_category">Water Category :</string>
+	<string name="class_of_water">Class of Water :</string>
+	<string name="other">Other </string>
+</resources>

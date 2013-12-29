@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/name_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/name_message" />
+
+    <EditText
+        android:id="@+id/length_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/length_message"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/width_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/width_message"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/height_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/height_message"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/textView_Choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="19sp" />
+
+    <CheckBox
+        android:id="@+id/checkbox_waterExtracted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/waterExtracted" />
+
+    <CheckBox
+        android:id="@+id/checkbox_carpetToSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/carpetToSave" />
+
+    <CheckBox
+        android:id="@+id/checkbox_upadRemoved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upadRemoved" />
+
+    <CheckBox
+        android:id="@+id/checkbox_carpetRemoved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/carpetRemoved" />
+
+    <CheckBox
+        android:id="@+id/checkbox_flooringRemoved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flooringRemoved" />
+
+
+</LinearLayout>
