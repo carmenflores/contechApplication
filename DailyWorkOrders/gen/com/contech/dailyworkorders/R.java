@@ -24,41 +24,49 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f060023;
+        public static final int action_settings=0x7f06002b;
         public static final int address=0x7f060009;
-        public static final int button_addRoom=0x7f060014;
-        public static final int checkBox1=0x7f06000e;
-        public static final int checkBox2=0x7f06000f;
-        public static final int checkbox_carpetRemoved=0x7f06001a;
-        public static final int checkbox_carpetToSave=0x7f060018;
-        public static final int checkbox_flooringRemoved=0x7f06001b;
-        public static final int checkbox_general1=0x7f06001f;
-        public static final int checkbox_general2=0x7f060020;
-        public static final int checkbox_general3=0x7f060021;
-        public static final int checkbox_general4=0x7f060022;
-        public static final int checkbox_upadRemoved=0x7f060019;
-        public static final int checkbox_waterExtracted=0x7f060017;
-        public static final int classWatText=0x7f060013;
+        public static final int button_addRoom=0x7f06001c;
+        public static final int checkbox_carpetRemoved=0x7f060022;
+        public static final int checkbox_carpetToSave=0x7f060020;
+        public static final int checkbox_flooringRemoved=0x7f060023;
+        public static final int checkbox_general1=0x7f060027;
+        public static final int checkbox_general2=0x7f060028;
+        public static final int checkbox_general3=0x7f060029;
+        public static final int checkbox_general4=0x7f06002a;
+        public static final int checkbox_upadRemoved=0x7f060021;
+        public static final int checkbox_waterExtracted=0x7f06001f;
+        public static final int classWatCheckBox1=0x7f060018;
+        public static final int classWatCheckBox2=0x7f060019;
+        public static final int classWatCheckBox3=0x7f06001a;
+        public static final int classWatCheckBox4=0x7f06001b;
+        public static final int classWatText=0x7f060017;
         public static final int date=0x7f06000a;
         public static final int fileNumber=0x7f060002;
         public static final int height_field=0x7f060007;
         public static final int insured=0x7f060001;
         public static final int length_field=0x7f060005;
         public static final int list=0x7f060008;
-        public static final int listView=0x7f060015;
+        public static final int listView=0x7f06001d;
         public static final int middleSection=0x7f06000b;
         public static final int my_button=0x7f060000;
         public static final int name_field=0x7f060004;
-        public static final int otherText=0x7f060010;
+        public static final int otherText=0x7f060011;
         public static final int room=0x7f060003;
+        public static final int sourceCheckBox1=0x7f06000e;
+        public static final int sourceCheckBox2=0x7f06000f;
+        public static final int sourceCheckBox3=0x7f060010;
         public static final int sourceRow=0x7f06000c;
         public static final int sourceText=0x7f06000d;
-        public static final int tableRow1=0x7f06001c;
-        public static final int tableRow2=0x7f06001e;
-        public static final int textView_Choose=0x7f060016;
-        public static final int textView_amount=0x7f06001d;
-        public static final int waterCatRow=0x7f060011;
-        public static final int waterCatText=0x7f060012;
+        public static final int tableRow1=0x7f060024;
+        public static final int tableRow2=0x7f060026;
+        public static final int textView_Choose=0x7f06001e;
+        public static final int textView_amount=0x7f060025;
+        public static final int waterCatRow=0x7f060012;
+        public static final int waterCatText=0x7f060013;
+        public static final int waterCheckBox1=0x7f060014;
+        public static final int waterCheckBox2=0x7f060015;
+        public static final int waterCheckBox3=0x7f060016;
         public static final int width_field=0x7f060006;
     }
     public static final class layout {
@@ -76,7 +84,7 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int add_room=0x7f050015;
         public static final int address=0x7f050019;
-        public static final int after_hours_emergency=0x7f05001f;
+        public static final int after_hours_emergency=0x7f05001e;
         public static final int amount=0x7f050018;
         public static final int app_name=0x7f050000;
         public static final int button_send=0x7f05000a;
@@ -85,8 +93,8 @@ public final class R {
         /**  New Room Activity
          */
         public static final int choose=0x7f050004;
-        public static final int class_of_water=0x7f05001b;
-        public static final int contents =0x7f050020;
+        public static final int class_of_water=0x7f050021;
+        public static final int contents =0x7f05001f;
         public static final int date=0x7f05000c;
         public static final int dialog_positive_new_room=0x7f050016;
         public static final int fileNumber=0x7f05000d;
@@ -95,19 +103,19 @@ public final class R {
         public static final int height_message=0x7f050009;
         public static final int insured=0x7f05000b;
         public static final int length_message=0x7f050007;
-        public static final int lock_box_installed=0x7f05001c;
+        public static final int lock_box_installed=0x7f05001b;
         public static final int my_button_text=0x7f050002;
         public static final int name_message=0x7f050006;
         public static final int other=0x7f050022;
-        public static final int photos_taken=0x7f05001e;
-        public static final int readings_taken=0x7f05001d;
+        public static final int photos_taken=0x7f05001d;
+        public static final int readings_taken=0x7f05001c;
         public static final int room=0x7f05000e;
         public static final int rooms_title=0x7f050005;
         public static final int source=0x7f05001a;
         public static final int students_pref_file_key=0x7f050014;
         public static final int upadRemoved=0x7f050011;
         public static final int waterExtracted=0x7f05000f;
-        public static final int water_category=0x7f050021;
+        public static final int water_category=0x7f050020;
         public static final int width_message=0x7f050008;
     }
     public static final class style {

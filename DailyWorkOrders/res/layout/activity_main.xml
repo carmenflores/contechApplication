@@ -51,17 +51,17 @@
         android:textSize="16sp"
         android:text="@string/source" />
         <CheckBox 
-            android:id="@+id/checkBox1"
+            android:id="@+id/sourceCheckBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Foundation "/>
         <CheckBox 
-            android:id="@+id/checkBox2"
+            android:id="@+id/sourceCheckBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Sewer "/>
         <CheckBox 
-            android:id="@+id/checkBox2"
+            android:id="@+id/sourceCheckBox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Fire "/>
@@ -94,17 +94,17 @@
         android:textSize="16sp"
         android:text="@string/water_category" />
         <CheckBox 
-            android:id="@+id/checkBox1"
+            android:id="@+id/waterCheckBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 1 Clean "/>
         <CheckBox 
-            android:id="@+id/checkBox2"
+            android:id="@+id/waterCheckBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 2 Gray "/>
         <CheckBox 
-            android:id="@+id/checkBox2"
+            android:id="@+id/waterCheckBox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 3 Black "/>
@@ -117,22 +117,22 @@
         android:textSize="16sp"
         android:text="@string/class_of_water" />
          <CheckBox 
-            android:id="@+id/checkBox1"
+            android:id="@+id/classWatCheckBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 1 "/>
         <CheckBox 
-            android:id="@+id/checkBox2"
+            android:id="@+id/classWatCheckBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 2 "/>
         <CheckBox 
-            android:id="@+id/checkBox2"
+            android:id="@+id/classWatCheckBox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 3 "/>
         <CheckBox 
-            android:id="@+id/checkBox2"
+            android:id="@+id/classWatCheckBox4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 4 "/>
