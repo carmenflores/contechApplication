@@ -43,6 +43,8 @@
         android:layout_height="wrap_content" >
 
 
+    	    
+    	    
         <TextView
         android:id="@+id/sourceText"
         android:layout_width="wrap_content"
@@ -50,21 +52,29 @@
         android:textStyle="bold"
         android:textSize="16sp"
         android:text="@string/source" />
-        <CheckBox 
-            android:id="@+id/sourceCheckBox1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" Foundation "/>
-        <CheckBox 
-            android:id="@+id/sourceCheckBox2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" Sewer "/>
-        <CheckBox 
-            android:id="@+id/sourceCheckBox3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" Fire "/>
+        
+        <RadioGroup android:id="@+id/RGsource"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <RadioButton android:id="@+id/source1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" Foundation "
+         android:onClick="onRadioButtonClicked"/>
+    <RadioButton android:id="@+id/source2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" Sewer "
+         android:onClick="onRadioButtonClicked"/>   
+          <RadioButton android:id="@+id/source3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" Sewer "
+         android:onClick="onRadioButtonClicked"/>
+</RadioGroup>
+        
+
 
         <EditText
             android:id="@+id/otherText"
@@ -141,14 +151,22 @@
             android:text=" 4 "/>
 
      </TableRow>
-     </TableLayout>
-        
-        	    
+     <TableRow>
+                 	    
     <Button
         android:id = "@+id/button_addRoom"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_room" />
+    <Button
+        android:id = "@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit" />
+    
+     </TableRow>
+     </TableLayout>
+        
 
     <ListView
         android:id="@+id/listView"

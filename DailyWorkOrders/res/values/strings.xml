@@ -44,9 +44,11 @@
 	<string name="lock_box_installed">Lock Box Installed :</string>
 	<string name="readings_taken">Readings Taken : </string>
 	<string name="photos_taken">Photos Taken : </string>
-	<string name="after_hours_emergency">After Hours Emergency</string>
-	<string name="contents "/>
+	<string name="after_hours_emergency">After Hours Emergency : </string>
+	<string name="contents">Contents : </string> 
 	<string name="water_category">Water Category :</string>
 	<string name="class_of_water">Class of Water :</string>
 	<string name="other">Other </string>
+		<string name="submit">Submit </string>
+	
 </resources>
