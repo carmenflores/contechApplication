@@ -61,17 +61,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 		 android:text=" Foundation "
-         android:onClick="onRadioButtonClicked"/>
+         />
     <RadioButton android:id="@+id/source2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 		 android:text=" Sewer "
-         android:onClick="onRadioButtonClicked"/>   
+         />   
           <RadioButton android:id="@+id/source3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" Sewer "
-         android:onClick="onRadioButtonClicked"/>
+		 android:text=" Fire "
+         />
+                    <RadioButton android:id="@+id/source4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" Other "
+         />
 </RadioGroup>
         
 
@@ -81,7 +86,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/other"
+            android:hint="@string/please_specify"
             android:inputType="text"
             android:minLines="2" >
 
@@ -103,21 +108,30 @@
         android:textStyle="bold"
         android:textSize="16sp"
         android:text="@string/water_category" />
-        <CheckBox 
-            android:id="@+id/waterCheckBox1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 1 Clean "/>
-        <CheckBox 
-            android:id="@+id/waterCheckBox2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 2 Gray "/>
-        <CheckBox 
-            android:id="@+id/waterCheckBox3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 3 Black "/>
+        
+              <RadioGroup android:id="@+id/RGwaterCat"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <RadioButton android:id="@+id/waterCat1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" 1 Clean "
+         />
+    <RadioButton android:id="@+id/waterCat2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" 2 Gray "
+         />   
+          <RadioButton android:id="@+id/waterCat3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" 3 Black "
+         />
+
+</RadioGroup>
+        
+
         
              </TableRow>
         <TableRow>
@@ -129,29 +143,157 @@
         android:textStyle="bold"
         android:textSize="16sp"
         android:text="@string/class_of_water" />
-         <CheckBox 
-            android:id="@+id/classWatCheckBox1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 1 "/>
-        <CheckBox 
-            android:id="@+id/classWatCheckBox2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 2 "/>
-        <CheckBox 
-            android:id="@+id/classWatCheckBox3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 3 "/>
-        <CheckBox 
-            android:id="@+id/classWatCheckBox4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 4 "/>
-
+        
+               <RadioGroup android:id="@+id/RGclassWat"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <RadioButton android:id="@+id/classWat1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" 1 "
+         />
+    <RadioButton android:id="@+id/classWat2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" 2 "
+         />   
+          <RadioButton android:id="@+id/classWat3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" 3 "
+         />
+        <RadioButton android:id="@+id/classWat4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" 4 "
+         />
+</RadioGroup>
+        
+       
      </TableRow>
+         <TableRow>
+         
+    <TextView
+        android:id="@+id/contentsManipulation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="@string/contents_manipulation" />
+                          
+    <RadioGroup android:id="@+id/RGcontents"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <RadioButton android:id="@+id/contents1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" Small "
+         />
+    <RadioButton android:id="@+id/contents2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" Medium "
+         />   
+          <RadioButton android:id="@+id/contents3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		 android:text=" Large "
+         />
+
+</RadioGroup>
+        
+    
+    
+     </TableRow>
+     </TableLayout>
+    <TableLayout
+    	android:id="@+id/middleSection2"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    >	
+     <TableRow android:layout_gravity="left" >
+
+        <CheckBox 
+            android:id="@+id/lockBoxInstalled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lock_box_installed"/>
+        <CheckBox 
+            android:id="@+id/readingsTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/readings_taken"/>
+        <CheckBox 
+            android:id="@+id/photosTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/photos_taken"/>
+                 <CheckBox 
+            android:id="@+id/afterHoursEmergency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/after_hours_emergency"/>
+     </TableRow>
+     </TableLayout>
+     	
+    <TableLayout
+    	android:id="@+id/middleSection"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    >	
+ 
+     
      <TableRow>
+         
+                    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="@string/crew" />          
+    
+                    <EditText
+            android:id="@+id/crewText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            android:minLines="2" >
+
+            <requestFocus />
+        </EditText>
+        
+                                <TextView
+        android:id="@+id/xText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="X" />     
+                    
+                <EditText
+            android:id="@+id/hoursText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            android:minLines="2" >
+
+            <requestFocus />
+        </EditText>
+            
+                <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="@string/hours" />       
+     </TableRow>
+     
+     
+          <TableRow>
                  	    
     <Button
         android:id = "@+id/button_addRoom"
@@ -165,8 +307,7 @@
         android:text="@string/submit" />
     
      </TableRow>
-     </TableLayout>
-        
+</TableLayout>
 
     <ListView
         android:id="@+id/listView"
