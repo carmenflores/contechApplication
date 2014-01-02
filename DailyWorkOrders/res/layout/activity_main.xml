@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent"
-     android:orientation="vertical" >
-	
+ <LinearLayout 
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       xmlns:android="http://schemas.android.com/apk/res/android">
+       <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout 
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:background="#ffffff"
+                  android:orientation="vertical">
     <EditText 
             android:id="@+id/insured"
    			android:layout_width="fill_parent"
     		android:layout_height="wrap_content"
     		android:hint="@string/insured"
-   			android:inputType="text" />
+   			android:inputType="textCapSentences" />
     
     <EditText
         	android:id="@+id/address"
@@ -17,20 +24,15 @@
     		android:layout_height="wrap_content"
     		android:hint="@string/address"
    			android:inputType="text" />
+
            
     <EditText 
-            android:id="@+id/fileNumber"
+            android:id="@+id/jobNumber"
    			android:layout_width="fill_parent"
     		android:layout_height="wrap_content"
-    		android:hint="@string/fileNumber"
+    		android:hint="@string/jobNumber"
    			android:inputType="text" />
     
-    <EditText 
-            android:id="@+id/date"
-   			android:layout_width="fill_parent"
-    		android:layout_height="wrap_content"
-    		android:hint="@string/date"
-   			android:inputType="text" />
 	
     <TableLayout
     	android:id="@+id/middleSection"
@@ -41,10 +43,7 @@
          android:id="@+id/sourceRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
-
-    	    
-    	    
+            	    
         <TextView
         android:id="@+id/sourceText"
         android:layout_width="wrap_content"
@@ -53,31 +52,35 @@
         android:textSize="16sp"
         android:text="@string/source" />
         
-        <RadioGroup android:id="@+id/RGsource"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <RadioButton android:id="@+id/source1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text=" Foundation "
-         />
-    <RadioButton android:id="@+id/source2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text=" Sewer "
-         />   
-          <RadioButton android:id="@+id/source3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text=" Fire "
-         />
-                    <RadioButton android:id="@+id/source4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text=" Other "
-         />
-</RadioGroup>
+       <RadioGroup android:id="@+id/RGsource"
+    	android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+   		android:orientation="horizontal">
+    		<RadioButton android:id="@+id/source1"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+			android:text="Foundation"
+			android:layout_marginRight="10sp" 
+         	/>
+    		<RadioButton android:id="@+id/source2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="Sewer"
+		 	android:layout_marginRight="10sp" 
+         	/>   
+          	<RadioButton android:id="@+id/source3"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="Fire"
+		 	android:layout_marginRight="10sp" 
+         	/>
+            <RadioButton android:id="@+id/source4"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="Other"
+		 	android:layout_marginRight="10sp" 
+         	/>
+		</RadioGroup>
         
 
 
@@ -87,13 +90,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/please_specify"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             android:minLines="2" >
 
-            <requestFocus />
+       
+
         </EditText>
 
-     </TableRow>
+     	</TableRow>
     
         <TableRow
          android:id="@+id/waterCatRow"
@@ -116,17 +120,20 @@
     <RadioButton android:id="@+id/waterCat1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" 1 Clean "
+		 android:text="1 Clean"
+		 android:layout_marginRight="10sp" 
          />
     <RadioButton android:id="@+id/waterCat2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" 2 Gray "
+		 android:text="2 Gray"
+		 android:layout_marginRight="10sp" 
          />   
           <RadioButton android:id="@+id/waterCat3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" 3 Black "
+		 android:text="3 Black"
+		 android:layout_marginRight="10sp" 
          />
 
 </RadioGroup>
@@ -134,9 +141,10 @@
 
         
              </TableRow>
-        <TableRow>
         
-        <TextView
+         <TableRow android:layout_width="match_parent" >
+
+             <TextView
         android:id="@+id/classWatText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -151,22 +159,25 @@
     <RadioButton android:id="@+id/classWat1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" 1 "
+		 android:text="1"
+		 android:layout_marginRight="10sp"
          />
     <RadioButton android:id="@+id/classWat2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" 2 "
+		 android:text="2"
+		 android:layout_marginRight="10sp"
          />   
           <RadioButton android:id="@+id/classWat3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" 3 "
+		 android:text="3"
+		 android:layout_marginRight="10sp"
          />
         <RadioButton android:id="@+id/classWat4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" 4 "
+		 android:text="4"
          />
 </RadioGroup>
         
@@ -189,24 +200,25 @@
     <RadioButton android:id="@+id/contents1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" Small "
+		 android:text="Small"
+		 android:layout_marginRight="12sp"
          />
     <RadioButton android:id="@+id/contents2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" Medium "
+		 android:text="Medium"
+		 android:layout_marginRight="12sp"
          />   
           <RadioButton android:id="@+id/contents3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text=" Large "
+		 android:text="Large"
+		 android:layout_marginRight="12sp"
          />
 
 </RadioGroup>
-        
-    
-    
      </TableRow>
+
      </TableLayout>
     <TableLayout
     	android:id="@+id/middleSection2"
@@ -219,53 +231,67 @@
             android:id="@+id/lockBoxInstalled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lock_box_installed"/>
+            android:text="@string/lock_box_installed"
+            android:layout_marginRight="6sp"/>
+        
+        <EditText
+            android:id="@+id/lockBoxCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/lock_box_code"
+            android:layout_marginRight="12sp"/>
+        </TableRow>
+        <TableRow>
         <CheckBox 
             android:id="@+id/readingsTaken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/readings_taken"/>
+            android:text="@string/readings_taken"
+            android:layout_marginRight="12sp"/>
         <CheckBox 
             android:id="@+id/photosTaken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/photos_taken"/>
-                 <CheckBox 
+            android:text="@string/photos_taken"
+            android:layout_marginRight="5sp"/>
+         <CheckBox 
             android:id="@+id/afterHoursEmergency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/after_hours_emergency"/>
      </TableRow>
      </TableLayout>
-     	
-    <TableLayout
-    	android:id="@+id/middleSection"
-    	android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    >	
- 
-     
-     <TableRow>
+
+     <TableLayout
+         android:id="@+id/crewSection"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
+
+         <TableRow 
+             android:id="@+id/crewRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
          
-                    <TextView
+       <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="16sp"
-        android:text="@string/crew" />          
+        android:text="@string/crew"
+        android:layout_marginRight = "8sp" />          
     
-                    <EditText
+       <EditText
             android:id="@+id/crewText"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:ems="5"
-            android:inputType="number"
+            android:inputType="phone"
             android:minLines="2" >
 
-            <requestFocus />
+     
         </EditText>
         
-                                <TextView
+        <TextView
         android:id="@+id/xText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -273,15 +299,15 @@
         android:textSize="16sp"
         android:text="X" />     
                     
-                <EditText
+        <EditText
             android:id="@+id/hoursText"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:ems="5"
-            android:inputType="number"
+            android:inputType="phone"
             android:minLines="2" >
 
-            <requestFocus />
+ 
         </EditText>
             
                 <TextView
@@ -291,28 +317,640 @@
         android:textSize="16sp"
         android:text="@string/hours" />       
      </TableRow>
+     </TableLayout>
      
-     
-          <TableRow>
+
+
+     	<TextView
+        android:id="@+id/workPerformed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:inputType="textCapSentences"
+        android:text="@string/work_performed_title" />
+
+     	<EditText
+            android:id="@+id/workText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            android:minLines="5" >
+        </EditText>
+        
+
+        <TableRow 
+        android:id="@+id/SamplesRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        	 <CheckBox 
+            android:id="@+id/samplesTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/samples_taken"
+            android:layout_marginRight="12sp"
+            />
+        	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:text="@string/pm" />      
+        	<EditText
+            android:id="@+id/PMText"
+            android:layout_width="fill_parent"
+            android:hint ="Enter name"
+            android:inputType="textCapSentences"
+            android:layout_height="wrap_content" >
+        	</EditText>
+        
+        </TableRow>
+        <TableLayout
+         android:id="@+id/samplesSection"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
+        <TableRow 
+        android:id="@+id/choiceSamplesRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <CheckBox 
+            android:id="@+id/carpetSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5sp"
+            android:text="Carpet"
+            />
+            <CheckBox 
+            android:id="@+id/baseboardSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5sp"
+            android:text="BaseBoard"
+            />
+            <CheckBox 
+            android:id="@+id/vinylSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5sp"
+            android:text="Vinyl Floor"
+            />
+            
+            <CheckBox 
+            android:id="@+id/laminateSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5sp"
+            android:text="Laminate Floor"
+            />
+            
+            <CheckBox 
+            android:id="@+id/engineeredSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Engineered Floor"
+            />
+
+        </TableRow>
+        
+         <TableRow 
+        android:id="@+id/choiceSamplesRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <CheckBox 
+            android:id="@+id/underpadSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5sp"
+            android:text="Underpad"
+            />
+            <CheckBox 
+            android:id="@+id/trimSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5sp"
+            android:text="Trim"
+            />
+            <CheckBox 
+            android:id="@+id/hardwoodSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5sp"
+            android:text="Hardwood"
+            />
+            
+            <CheckBox 
+            android:id="@+id/subfloorSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5sp"
+            android:text="Sub Floor"
+            />
+            
+            <CheckBox 
+            android:id="@+id/wallSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wall Paneling"
+            />
+            </TableRow>
+            <TableRow 
+        	android:id="@+id/choiceSamplesRow3"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content">
+            <CheckBox 
+            android:id="@+id/otherSample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other"
+            />
+            
+            <EditText
+            android:id="@+id/otherSampleEdit"
+            android:layout_width="fill_parent"
+            android:ems="9"
+            android:inputType="textCapSentences"
+            android:layout_height="wrap_content" 
+            android:hint="@string/please_specify">
+        	</EditText>
+
+        </TableRow>
+        </TableLayout>
+                <TableLayout
+         android:id="@+id/contentsSection"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
+         <TableRow 
+        android:id="@+id/contentsReturned"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20sp"
+        android:layout_height="wrap_content">
+        <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:text="Contents Returned to Shop: " />      
+        
+  		<CheckBox 
+            android:id="@+id/areaRugReturned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Area Rug Returned To Shop"
+            android:layout_marginRight="5sp"
+        />
+                         
+        <CheckBox 
+            android:id="@+id/totalPieces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total # of Pieces"
+         />
+        </TableRow>
+        
+         <EditText
+            android:id="@+id/contentsRet"
+            android:minLines="2"
+            android:gravity="start"
+            android:hint="Please specify..."
+            android:inputType="textMultiLine"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+        	</EditText>
+        <TableRow 
+        android:id="@+id/contentsReturned"
+        android:layout_marginTop="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+               
+  		<CheckBox 
+            android:id="@+id/equipmentPickedUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Equipment Picked Up"
+            android:layout_marginRight="5sp"
+        />
+                         
+        <CheckBox 
+            android:id="@+id/equipmentInstalled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight = "5sp"
+            android:text="Equipement Installed"
+         />
+                <CheckBox 
+            android:id="@+id/finalReadingsTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight = "5sp"
+            android:text="Final Readings Taken"
+         />
+        </TableRow>
+        </TableLayout>
+        <TableLayout
+         android:id="@+id/epuipmentSection"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
+        <TableRow 
+        android:id="@+id/equipmentRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+      
+        <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="italic"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Air Movers" />
+        <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Turbo" />
+        <EditText
+            android:id="@+id/turbo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="12sp" >
+        </EditText>
+       <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Axial" />
+        <EditText
+            android:id="@+id/axial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="12sp" >
+        </EditText>
+        <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Dehumidifiers" />
+        <EditText
+            android:id="@+id/dehumidifiers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="12sp" >
+        </EditText>
+       <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="LGR" />
+        <EditText
+            android:id="@+id/lgr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="12sp" >
+        </EditText>
+         <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Evolution" />
+        <EditText
+            android:id="@+id/evolution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="12sp" >
+        </EditText>
+        </TableRow>
+        <TableRow
+        android:id="@+id/scrubberRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+       <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="italic"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Air Scrubbers" />
+        <EditText
+            android:id="@+id/scrubbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="12sp" >
+          </EditText>
+        </TableRow>
+               
+          <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Others: Ext.Cords, Bins, Neg Air, Injecti-Dry Mats Etc." />
+             <EditText
+            android:id="@+id/otherEquipment"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            > 
+			</EditText>        
+        
+       </TableLayout>
+       <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginTop="15sp"
+        	android:text="Materials Used: "
+       />
+       <TableLayout
+         android:id="@+id/materialsSection"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
+        <TableRow 
+        android:id="@+id/materialsRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="16sp"
+        	android:layout_marginRight="5sp"
+        	android:text="Garbage Bags"
+       />
+        <EditText
+            android:id="@+id/garbageSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15sp"
+            android:inputType="phone"
+         >
+        </EditText>
+               <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="16sp"
+        	android:layout_marginRight="5sp"
+        	android:text="Boxes"
+       />
+        <EditText
+            android:id="@+id/boxesSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15sp"
+            android:inputType="phone"
+         >
+        </EditText>
+         <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="16sp"
+        	android:layout_marginRight="5sp"
+        	android:text="Plastic"
+       />
+        <EditText
+            android:id="@+id/plasticSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="15sp"
+         >
+          </EditText>
+        <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="16sp"
+        	android:layout_marginRight="5sp"
+        	android:text="Masks"
+       />
+        <EditText
+            android:id="@+id/masksSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15sp"
+            android:inputType="phone"
+         >
+        </EditText>
+        </TableRow>
+        <TableRow 
+        android:id="@+id/materialsRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="16sp"
+        	android:layout_marginRight="5sp"
+        	android:text="Suits"
+       />
+        <EditText
+            android:id="@+id/suitsSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15sp"
+            android:inputType="phone"
+         >
+        </EditText>
+               <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="16sp"
+        	android:layout_marginRight="5sp"
+        	android:text="Gloves"
+       />
+        <EditText
+            android:id="@+id/glovesSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15sp"
+            android:inputType="phone"
+         >
+        </EditText>
+         <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="16sp"
+        	android:layout_marginRight="5sp"
+        	android:text="Rags"
+       />
+        <EditText
+            android:id="@+id/ragsSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="15sp"
+         >
+          </EditText>
+        <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="16sp"
+        	android:layout_marginRight="5sp"
+        	android:text="Floor Runners"
+       />
+        <EditText
+            android:id="@+id/floorRunnerSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15sp"
+            android:inputType="phone"
+         >
+        </EditText>
+        </TableRow>
+      
+        </TableLayout>
+        <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textSize="16sp"
+        	android:layout_marginRight="5sp"
+        	android:text="Other Materials Used: Disinfectant, Khem Sponge, Etc."
+       />
+       <EditText
+            android:id="@+id/otherMaterialSection"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minLines="1"
+            android:inputType="textMultiLine">
+           
+       </EditText>
+
+       <TableLayout
+         android:id="@+id/garbageDisposedSection"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
+        <TableRow
+        android:id="@+id/garDisposedRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Garbage Disposed:"
+        	/>
+
+       <RadioGroup android:id="@+id/RGgarbage"
+    	android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+   		android:orientation="horizontal">
+    		<RadioButton android:id="@+id/garbage1"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+			android:text="1/2 Bin"
+			android:layout_marginRight="10sp" 
+         	/>
+    		<RadioButton android:id="@+id/garbage2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="1/4 Bin"
+		 	android:layout_marginRight="10sp" 
+         	/>   
+          	<RadioButton android:id="@+id/garbage3"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="Full Bin"
+		 	android:layout_marginRight="10sp" 
+         	/>
+		</RadioGroup>
+	</TableRow>
+	        <TableRow
+        android:id="@+id/trucksRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+	 <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Truck Used:"
+        	/>
+       <RadioGroup android:id="@+id/RGgtruck"
+    	android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+   		android:orientation="horizontal">
+    		<RadioButton android:id="@+id/truck1"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+			android:text="Cube Van"
+			android:layout_marginRight="10sp" 
+         	/>
+    		<RadioButton android:id="@+id/truck2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="Cargo Van"
+		 	android:layout_marginRight="10sp" 
+         	/>   
+		</RadioGroup>
+		</TableRow>
+	</TableLayout>
+         <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Instructions/Notes for next crew on site:"
+        	/>
+        <EditText
+            android:id="@+id/noteSection"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minLines="2"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            > 
+        </EditText>
+        
+          <TableLayout
+         android:id="@+id/buttonSection"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content" >
+
+     <TableRow 
+        android:id="@+id/buttonRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
                  	    
-    <Button
+    	<Button
         android:id = "@+id/button_addRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_room" />
-    <Button
+    	<Button
         android:id = "@+id/button_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit" />
     
      </TableRow>
-</TableLayout>
+     
+     </TableLayout>
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
     </ListView>
-
+   </LinearLayout>
+</ScrollView>
 </LinearLayout>

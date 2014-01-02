@@ -25,7 +25,7 @@
     
     <string name = "insured">Insured : </string>
     <string name = "date">Date:    (dd/mm/yy)</string>
-    <string name = "fileNumber"> File Number: </string>
+    <string name = "jobNumber"> Job Number: </string>
     <string name = "room"> Room: </string>  
     <string name="waterExtracted">Water Extracted</string>
     <string name = "carpetToSave">Lift Carpet to Save</string>
@@ -42,6 +42,7 @@
 	<string name="address">Address :</string>
 	<string name="source">Source :</string>
 	<string name="lock_box_installed">Lock Box Installed </string>
+	<string name="lock_box_code">Passcode</string>
 	<string name="readings_taken">Readings Taken </string>
 	<string name="photos_taken">Photos Taken </string>
 	<string name="after_hours_emergency">After Hours Emergency </string>
@@ -50,10 +51,15 @@
 	<string name="class_of_water">Class of Water :</string>
 	<string name="please_specify">Please specify...</string>
 		<string name="additional_info">Additional Info.</string>
+		
 	
 	<string name="crew">Crew</string>
 	<string name="hours">Hours</string>
+	<string name="dialog_positive_submit">Send</string>
+	<string name="submit">Submit </string>
 	
-		<string name="submit">Submit </string>
-	
+	<string name="work_performed_title"> Findings/Work Performed on site today :</string>
+	<string name="samples_taken"> Samples Taken </string>
+	<string name= "pm"> PM : </string>
+	<string name="add_sample"> Add Samples </string>
 </resources>
