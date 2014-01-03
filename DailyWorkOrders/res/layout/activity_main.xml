@@ -490,24 +490,16 @@
         	android:layout_height="wrap_content"
         	android:textStyle="bold"
         	android:textSize="16sp"
-        	android:text="Contents Returned to Shop: " />      
-        
-  		<CheckBox 
-            android:id="@+id/areaRugReturned"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Area Rug Returned To Shop"
-            android:layout_marginRight="5sp"
-        />
-                         
-        <CheckBox 
-            android:id="@+id/totalPieces"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total # of Pieces"
-         />
-        </TableRow>
-        
+        	android:text="Contents Returned to Shop: " />
+        </TableRow>        
+
+               <TextView
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:text="Total # of Pieces" />
+
          <EditText
             android:id="@+id/contentsRet"
             android:minLines="2"

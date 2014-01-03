@@ -59,7 +59,34 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	private CheckBox otherSample;
 	private EditText otherSampleText;
 	
+	private CheckBox isEquipmentPick;
+	private CheckBox isEquipmentInstalled;
+	private CheckBox isFinalReadingsTaken;
 	
+	private EditText turbo;
+	private EditText axial;
+	private EditText dehumidifiers;
+	private EditText lgr;
+	private EditText evolution;
+	private EditText airScrubbers;
+	private EditText otherEquipment;
+	
+	private EditText garbageBags;
+	private EditText boxes;
+	private EditText plastic;
+	private EditText masks;
+	private EditText suits;
+	private EditText gloves;
+	private EditText rags;
+	private EditText floorRunners;
+	private EditText otherMaterials;
+	
+	private RadioGroup RGgarbage;
+	private RadioGroup RGtrucks;
+	
+	private EditText notes;
+	
+	private EditText contentsReturned;
 	private RadioGroup RGsource;
 	private RadioGroup RGwaterCat;
 	private RadioGroup RGclassWat;
@@ -264,6 +291,40 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    					 fields.add(sample + "\n");
 		    				 }
 		    			 }
+		    			contentsReturned = (EditText)findViewById(R.id.contentsRet);
+		    			String content = contentsReturned.getText().toString();
+		    			if (content.length() > 0){
+		    				fields.add("\n" + content);
+		    			}
+		    			
+		    		 /*	private CheckBox isEquipmentPick;
+		    			private CheckBox isEquipmentInstalled;
+		    			private CheckBox isFinalReadingsTaken;
+		    			
+		    			private EditText turbo;
+		    			private EditText axial;
+		    			private EditText dehumidifiers;
+		    			private EditText lgr;
+		    			private EditText evolution;
+		    			private EditText airScrubbers;
+		    			private EditText otherEquipment;
+		    			
+		    			private EditText garbageBags;
+		    			private EditText boxes;
+		    			private EditText plastic;
+		    			private EditText masks;
+		    			private EditText suits;
+		    			private EditText gloves;
+		    			private EditText rags;
+		    			private EditText floorRunners;
+		    			private EditText otherMaterials;
+		    			
+		    			private RadioGroup RGgarbage;
+		    			private RadioGroup RGtrucks;
+		    			
+		    			private EditText notes; */
+		    			
+		    			
 		    		 }
 		    		 showSubmitDialog();
 	               
