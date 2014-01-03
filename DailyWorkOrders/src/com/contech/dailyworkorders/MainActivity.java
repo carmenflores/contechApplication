@@ -82,7 +82,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	private EditText otherMaterials;
 	
 	private RadioGroup RGgarbage;
-	private RadioGroup RGtrucks;
+	private RadioGroup RGgtruck;
 	
 	private EditText notes;
 	
@@ -293,37 +293,160 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    			 }
 		    			contentsReturned = (EditText)findViewById(R.id.contentsRet);
 		    			String content = contentsReturned.getText().toString();
-		    			if (content.length() > 0){
-		    				fields.add("\n" + content);
-		    			}
+                        if (content.length() > 0){
+                                fields.add("\n" + "Contents Returned to Shop:" + "\n\t" + content);
+                        }
 		    			
-		    		 /*	private CheckBox isEquipmentPick;
-		    			private CheckBox isEquipmentInstalled;
-		    			private CheckBox isFinalReadingsTaken;
-		    			
-		    			private EditText turbo;
-		    			private EditText axial;
-		    			private EditText dehumidifiers;
-		    			private EditText lgr;
-		    			private EditText evolution;
-		    			private EditText airScrubbers;
-		    			private EditText otherEquipment;
-		    			
-		    			private EditText garbageBags;
-		    			private EditText boxes;
-		    			private EditText plastic;
-		    			private EditText masks;
-		    			private EditText suits;
-		    			private EditText gloves;
-		    			private EditText rags;
-		    			private EditText floorRunners;
-		    			private EditText otherMaterials;
-		    			
-		    			private RadioGroup RGgarbage;
-		    			private RadioGroup RGtrucks;
-		    			
-		    			private EditText notes; */
-		    			
+                    
+                     isEquipmentPick = (CheckBox) findViewById(R.id.equipmentPickedUp);
+    		    	 isEquipmentInstalled = (CheckBox) findViewById(R.id.equipmentInstalled);
+		    		 isFinalReadingsTaken = (CheckBox) findViewById(R.id.finalReadingsTaken);
+		    		 if (isEquipmentPick.isChecked() || isEquipmentInstalled.isChecked() || isFinalReadingsTaken.isChecked()){ 
+	                     String equipString = "";  
+		    			 if (isEquipmentPick.isChecked()){
+	   		    			 equipString += "Equipment picked up, ";
+	   		    		 }
+			    		 if (isEquipmentInstalled.isChecked()){
+			    			 equipString += "Equipment installed, ";
+			    		 }
+			    		 if (isFinalReadingsTaken.isChecked()){
+			    			 equipString += "Final readings taken, ";
+			    		 }
+			    		
+			    		 /* remove last two characters */
+			    		 equipString = equipString.substring(0, equipString.length()-2);
+			    		 /* add colon */
+			    		 equipString += ": /n/t";
+			    				 
+					     turbo = (EditText) findViewById(R.id.turbo);
+			    		 String turboString = turbo.getText().toString();
+			    		 if(turboString.length() > 0){
+			    			 equipString += turboString + "x turbo / ";
+			    		 }	 
+			    		 axial = (EditText) findViewById(R.id.axial);
+			    		 String axialString = axial.getText().toString();
+			    		 if(axialString.length() > 0){
+			    			 equipString += axialString + "x axial / ";
+			    		 }	 
+			    		 dehumidifiers = (EditText) findViewById(R.id.dehumidifiers);
+			    		 String dehumidifiersString = dehumidifiers.getText().toString();
+			    		 if(dehumidifiersString.length() > 0){
+			    			 equipString += dehumidifiersString + "x axial / ";
+			    		 }	 
+			    		 lgr = (EditText) findViewById(R.id.lgr);
+			    		 String lgrString = lgr.getText().toString();
+			    		 if(lgrString.length() > 0){
+			    			 equipString += lgrString + "x LGR / ";
+			    		 }	
+			    		 evolution = (EditText) findViewById(R.id.evolution);
+			    		 String evolutionString = evolution.getText().toString();
+			    		 if(evolutionString.length() > 0){
+			    			 equipString += evolutionString + "x evolution / ";
+			    		 }	
+			    		 airScrubbers = (EditText) findViewById(R.id.scrubbers);
+			    		 String airScrubbersString = airScrubbers.getText().toString();
+			    		 if(airScrubbersString.length() > 0){
+			    			 equipString += airScrubbersString + "x air scrubbers / ";
+			    		 }	
+			      		 otherEquipment = (EditText) findViewById(R.id.otherEquipment);
+			    		 String otherEquipmentString = otherEquipment.getText().toString();
+			    		 if(otherEquipmentString.length() > 0){
+			    			 equipString += otherEquipmentString + "/ ";
+			    		 }	
+			    		 
+			    		 equipString = equipString.substring(0, equipString.length()-2);
+                         fields.add(equipString + "\n\n");
+
+		    		 }
+		    		 	
+				     garbageBags = (EditText) findViewById(R.id.garbageSection);
+		    		 String garbageBagsString = garbageBags.getText().toString();
+
+				     boxes = (EditText) findViewById(R.id.boxesSection);
+		    		 String boxesString = boxes.getText().toString();
+
+				     plastic = (EditText) findViewById(R.id.plasticSection);
+		    		 String plasticString = plastic.getText().toString();
+
+				     masks = (EditText) findViewById(R.id.masksSection);
+		    		 String masksString = masks.getText().toString();
+
+				     suits = (EditText) findViewById(R.id.suitsSection);
+		    		 String suitsString = suits.getText().toString();
+
+				     gloves = (EditText) findViewById(R.id.glovesSection);
+		    		 String glovesString = gloves.getText().toString();
+
+				     rags = (EditText) findViewById(R.id.ragsSection);
+		    		 String ragsString = rags.getText().toString();
+
+				     floorRunners = (EditText) findViewById(R.id.floorRunnerSection);
+		    		 String floorRunnersString = floorRunners.getText().toString();
+
+				     otherMaterials = (EditText) findViewById(R.id.otherMaterialSection);
+		    		 String otherMaterialsString = otherMaterials.getText().toString();
+
+		    		 if(garbageBagsString.length() > 0 || boxesString.length() > 0 || plasticString.length() > 0 || 
+		    				 masksString.length() > 0 || suitsString.length() > 0 || glovesString.length() > 0 ||
+		    				 ragsString.length() > 0 || floorRunnersString.length() > 0 || otherMaterialsString.length() > 0 ){
+	                     String materialsString = "";  
+			    		 if(garbageBagsString.length() > 0){
+			    			 materialsString += garbageBagsString + "x garbage bags / ";
+			    		 }	
+			    		 if(boxesString.length() > 0){
+			    			 materialsString += boxesString + "x boxes / ";
+			    		 }	
+			    		 if(plasticString.length() > 0){
+			    			 materialsString += plasticString + "x plastic / ";
+			    		 }	
+			    		 if(masksString.length() > 0){
+			    			 materialsString += masksString + "x masks / ";
+			    		 }	
+			    		 if(suitsString.length() > 0){
+			    			 materialsString += suitsString + "x suits / ";
+			    		 }	
+			    		 if(glovesString.length() > 0){
+			    			 materialsString += glovesString + "x gloves / ";
+			    		 }
+			    		 if(ragsString.length() > 0){
+			    			 materialsString += ragsString + "x rags / ";
+			    		 }
+			    		 if(floorRunnersString.length() > 0){
+			    			 materialsString += floorRunnersString + "x floor runners / ";
+			    		 }
+			    		 if(otherMaterialsString.length() > 0){
+			    			 materialsString += otherMaterialsString + "/ ";
+			    		 }
+			    		 materialsString = materialsString.substring(0, materialsString.length()-2);
+                         fields.add(materialsString + "\n\n");
+		    		 }
+		    		 
+		    		 RGgarbage = (RadioGroup) findViewById(R.id.RGgarbage);
+		    		 if ( RGgarbage.getCheckedRadioButtonId()!= -1){
+		    			 int id=  RGgarbage.getCheckedRadioButtonId();
+		    			 View radioButton =  RGgarbage.findViewById(id);
+		    			 int radioId =  RGgarbage.indexOfChild(radioButton);
+		    			 RadioButton btn = (RadioButton)  RGgarbage.getChildAt(radioId);
+		    			 String selection = (String) btn.getText();
+		    			 fields.add("Garbage disposed: "+ selection + "/n/n"); 
+		    	    }
+		    		 
+		    		 RGgtruck = (RadioGroup) findViewById(R.id.RGgtruck);
+		    		 if ( RGgtruck.getCheckedRadioButtonId()!= -1){
+		    			 int id=  RGgtruck.getCheckedRadioButtonId();
+		    			 View radioButton =  RGgtruck.findViewById(id);
+		    			 int radioId =  RGgtruck.indexOfChild(radioButton);
+		    			 RadioButton btn = (RadioButton)  RGgtruck.getChildAt(radioId);
+		    			 String selection = (String) btn.getText();
+		    			 fields.add("Truck used: "+ selection + "/n/n"); 
+		    	    }
+		    		 
+		    		 notes = (EditText) findViewById(R.id.noteSection);
+		    		 String notesString = notes.getText().toString();
+		    		 if(notesString.length() > 0){
+		    			 fields.add(notesString +"/n"); 
+		    		 }
+
 		    			
 		    		 }
 		    		 showSubmitDialog();
