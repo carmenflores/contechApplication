@@ -81,9 +81,6 @@
 		 	android:layout_marginRight="10sp" 
          	/>
 		</RadioGroup>
-        
-
-
         <EditText
             android:id="@+id/otherText"
             android:layout_width="fill_parent"
@@ -92,100 +89,89 @@
             android:hint="@string/please_specify"
             android:inputType="textCapSentences"
             android:minLines="2" >
-
-       
-
         </EditText>
-
      	</TableRow>
-    
         <TableRow
-         android:id="@+id/waterCatRow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-
+        	android:id="@+id/waterCatRow"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content" >
         <TextView
-        android:id="@+id/waterCatText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:text="@string/water_category" />
+        	android:id="@+id/waterCatText"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:text="@string/water_category" />
         
-              <RadioGroup android:id="@+id/RGwaterCat"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <RadioButton android:id="@+id/waterCat1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text="1 Clean"
-		 android:layout_marginRight="10sp" 
-         />
-    <RadioButton android:id="@+id/waterCat2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text="2 Gray"
-		 android:layout_marginRight="10sp" 
-         />   
-          <RadioButton android:id="@+id/waterCat3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text="3 Black"
-		 android:layout_marginRight="10sp" 
-         />
+        <RadioGroup android:id="@+id/RGwaterCat"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal">
+    		<RadioButton android:id="@+id/waterCat1"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+		 		android:text="1 Clean"
+		 		android:layout_marginRight="10sp" 
+        	/>
+    		<RadioButton android:id="@+id/waterCat2"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+		 		android:text="2 Gray"
+		 		android:layout_marginRight="10sp" 
+         	/>   
+          	<RadioButton android:id="@+id/waterCat3"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+		 		android:text="3 Black"
+		 		android:layout_marginRight="10sp" 
+         	/>
 
-</RadioGroup>
-        
-
-        
-             </TableRow>
+		</RadioGroup>
+        </TableRow>
         
          <TableRow android:layout_width="match_parent" >
 
              <TextView
-        android:id="@+id/classWatText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:text="@string/class_of_water" />
+        	android:id="@+id/classWatText"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:text="@string/class_of_water" />
         
-               <RadioGroup android:id="@+id/RGclassWat"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <RadioButton android:id="@+id/classWat1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text="1"
-		 android:layout_marginRight="10sp"
-         />
-    <RadioButton android:id="@+id/classWat2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text="2"
-		 android:layout_marginRight="10sp"
-         />   
-          <RadioButton android:id="@+id/classWat3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text="3"
-		 android:layout_marginRight="10sp"
-         />
-        <RadioButton android:id="@+id/classWat4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		 android:text="4"
-         />
-</RadioGroup>
-        
-       
+            <RadioGroup android:id="@+id/RGclassWat"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal">
+          	
+    		<RadioButton android:id="@+id/classWat1"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="1"
+		 	android:layout_marginRight="10sp"
+         	/>
+    		<RadioButton android:id="@+id/classWat2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="2"
+		 	android:layout_marginRight="10sp"
+         	/>   
+          	<RadioButton android:id="@+id/classWat3"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="3"
+		 	android:layout_marginRight="10sp"
+         	/>
+        	<RadioButton android:id="@+id/classWat4"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="4"
+         	/>
+		</RadioGroup>
      </TableRow>
-         <TableRow>
+     <TableRow>
          
-    <TextView
+    	<TextView
         android:id="@+id/contentsManipulation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -193,33 +179,31 @@
         android:textSize="16sp"
         android:text="@string/contents_manipulation" />
                           
-    <RadioGroup android:id="@+id/RGcontents"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <RadioButton android:id="@+id/contents1"
+    	<RadioGroup android:id="@+id/RGcontents"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal">
+    	<RadioButton android:id="@+id/contents1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text="Small"
-		 android:layout_marginRight="12sp"
+		android:text="Small"
+		android:layout_marginRight="12sp"
          />
-    <RadioButton android:id="@+id/contents2"
+    	<RadioButton android:id="@+id/contents2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text="Medium"
-		 android:layout_marginRight="12sp"
-         />   
-          <RadioButton android:id="@+id/contents3"
+		android:text="Medium"
+		android:layout_marginRight="12sp"
+        />   
+        <RadioButton android:id="@+id/contents3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		 android:text="Large"
-		 android:layout_marginRight="12sp"
+		android:text="Large"
+		android:layout_marginRight="12sp"
          />
-
-</RadioGroup>
+		</RadioGroup>
      </TableRow>
-
-     </TableLayout>
+    </TableLayout>
     <TableLayout
     	android:id="@+id/middleSection2"
     	android:layout_width="fill_parent"
@@ -310,7 +294,7 @@
  
         </EditText>
             
-                <TextView
+      <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -319,8 +303,6 @@
      </TableRow>
      </TableLayout>
      
-
-
      	<TextView
         android:id="@+id/workPerformed"
         android:layout_width="wrap_content"

@@ -34,6 +34,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	
 	private EditText insuredEdit;
 	private EditText jobNumberEdit;
+	private EditText addressEdit;
 	private EditText crewEdit;
 	private EditText hoursEdit;
 	private EditText workPerformedEdit;
@@ -91,6 +92,8 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	private RadioGroup RGwaterCat;
 	private RadioGroup RGclassWat;
 	private RadioGroup RGcontentsMan;
+	
+	private String subject;
 	private ArrayList<String> fields;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -128,21 +131,32 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    		 
 		    		 insuredEdit = (EditText) findViewById(R.id.insured);
 		    		 jobNumberEdit = (EditText) findViewById(R.id.jobNumber);
+		    		 addressEdit = (EditText) findViewById(R.id.address);
 		    		 
 		    		 String jobNumber = jobNumberEdit.getText().toString();
+		    		 subject += jobNumber+ " ";
 		    		 fields.add(jobNumber + " ");
 		    		 
 		    		 String name = insuredEdit.getText().toString();
 		    		 if (name.isEmpty()){
 		    			 Toast.makeText(MainActivity.this, "Please enter insured Name", Toast.LENGTH_SHORT).show();
 		    		 }else{
+		    			 subject += name; 
 			    		 if (name.contains(",")){
-			    			 fields.add(name.split(",")[0].trim() + "\n\n");
+			    			 fields.add(name.split(",")[0].trim() + name.split(",")[1].trim());
 			    		 }
 			    		 else{
-			    			 fields.add(name.split(" ")[1].trim() + "\n\n");
+			    			 fields.add(name);
+			    		 }
+			    		 String addr = addressEdit.getText().toString();
+			    		 if (addr.length() > 0){
+			    			 fields.add("\n" +addr + "\n\n");
+			    		 }
+			    		 else{
+			    			 fields.add("\n\n");
 			    		 }
 		    		 }
+		    		
 		    		 Calendar c = Calendar.getInstance();
 		    		 String date = c.getTime().toString();
 		    		 String[] dateInfo = date.split(" ");
@@ -248,37 +262,37 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    		 if (issampleTaken.isChecked()){
 		    			 fields.add("Samples Taken: \n");
 		    			 if (carpetSample.isChecked()){
-		    				 fields.add("Carpet \n");
+		    				 fields.add(" \t Carpet \n");
 		    			 }
 		    			 if (baseboardSample.isChecked()){
-		    				 fields.add("Baseboard \n");
+		    				 fields.add("\t Baseboard \n");
 		    			 }
 		    			 if (vinylSample.isChecked()){
-		    				 fields.add("Vinyl Floor \n");
+		    				 fields.add("\t Vinyl Floor \n");
 		    			 }
 		    			 if (laminateSample.isChecked()){
-		    				 fields.add("Laminate Floor \n");
+		    				 fields.add("\t Laminate Floor \n");
 		    				 
 		    			 }
 		    			 if (engineeredSample.isChecked()){
-		    				 fields.add("Engineered Floor \n");
+		    				 fields.add("\t Engineered Floor \n");
 		    				 
 		    			 }
 		    			 if (underpadSample.isChecked()){
-		    				 fields.add("Underpad \n");
+		    				 fields.add("\t Underpad \n");
 		    			 }
 		    			 if (trimSample.isChecked()){
-		    				 fields.add("Trim \n");
+		    				 fields.add("\t Trim \n");
 		    			 }
 		    			 if (hardwoodSample.isChecked()){
-		    				 fields.add("Hardwood \n");
+		    				 fields.add("\t Hardwood \n");
 		    			 }
 		    			 
 		    			 if(subfloorSample.isChecked()){
-		    				 fields.add("Sub Floor \n");
+		    				 fields.add("\t Sub Floor \n");
 		    			 }
 		    			 if (wallSample.isChecked()){
-		    				 fields.add("Wall Paneling \n");
+		    				 fields.add("\t Wall Paneling \n");
 		    			 }
 		    			 
 		    			 if(otherSample.isChecked()){
@@ -288,13 +302,13 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    					 Toast.makeText(MainActivity.this, "Please enter name of other sample", Toast.LENGTH_SHORT).show();
 		    				 }
 		    				 else{
-		    					 fields.add(sample + "\n");
+		    					 fields.add("\t" + sample + "\n");
 		    				 }
 		    			 }
 		    			contentsReturned = (EditText)findViewById(R.id.contentsRet);
 		    			String content = contentsReturned.getText().toString();
                         if (content.length() > 0){
-                                fields.add("\n" + "Contents Returned to Shop:" + "\n\t" + content);
+                                fields.add("\n" + "Contents Returned to Shop:" + "\n\t" + content + "\n\n");
                         }
 		    			
                     
@@ -316,7 +330,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 			    		 /* remove last two characters */
 			    		 equipString = equipString.substring(0, equipString.length()-2);
 			    		 /* add colon */
-			    		 equipString += ": /n/t";
+			    		 equipString += ": \n\t";
 			    				 
 					     turbo = (EditText) findViewById(R.id.turbo);
 			    		 String turboString = turbo.getText().toString();
@@ -389,7 +403,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    		 if(garbageBagsString.length() > 0 || boxesString.length() > 0 || plasticString.length() > 0 || 
 		    				 masksString.length() > 0 || suitsString.length() > 0 || glovesString.length() > 0 ||
 		    				 ragsString.length() > 0 || floorRunnersString.length() > 0 || otherMaterialsString.length() > 0 ){
-	                     String materialsString = "";  
+	                     String materialsString = "Materials used: ";  
 			    		 if(garbageBagsString.length() > 0){
 			    			 materialsString += garbageBagsString + "x garbage bags / ";
 			    		 }	
@@ -428,7 +442,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    			 int radioId =  RGgarbage.indexOfChild(radioButton);
 		    			 RadioButton btn = (RadioButton)  RGgarbage.getChildAt(radioId);
 		    			 String selection = (String) btn.getText();
-		    			 fields.add("Garbage disposed: "+ selection + "/n/n"); 
+		    			 fields.add("Garbage disposed: "+ selection + "\n\n"); 
 		    	    }
 		    		 
 		    		 RGgtruck = (RadioGroup) findViewById(R.id.RGgtruck);
@@ -438,13 +452,13 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    			 int radioId =  RGgtruck.indexOfChild(radioButton);
 		    			 RadioButton btn = (RadioButton)  RGgtruck.getChildAt(radioId);
 		    			 String selection = (String) btn.getText();
-		    			 fields.add("Truck used: "+ selection + "/n/n"); 
+		    			 fields.add("Truck used: "+ selection + "\n\n"); 
 		    	    }
 		    		 
 		    		 notes = (EditText) findViewById(R.id.noteSection);
 		    		 String notesString = notes.getText().toString();
 		    		 if(notesString.length() > 0){
-		    			 fields.add(notesString +"/n"); 
+		    			 fields.add("Instructions/Notes for next crew on site:" + notesString +"\n"); 
 		    		 }
 
 		    			
@@ -469,7 +483,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	}
 	
 	private void showSubmitDialog() {
-		DialogFragment newSubmitFragment = SubmitDialogFragment.newInstance(fields);
+		DialogFragment newSubmitFragment = SubmitDialogFragment.newInstance(fields, subject);
 		newSubmitFragment.show(getFragmentManager(), "submit");
 	}
 	
