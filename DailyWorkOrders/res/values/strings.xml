@@ -62,4 +62,5 @@
 	<string name="samples_taken"> Samples Taken </string>
 	<string name= "pm"> PM : </string>
 	<string name="add_sample"> Add Samples </string>
+	<string name="map">Get Directions</string>
 </resources>

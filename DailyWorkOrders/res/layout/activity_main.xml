@@ -32,8 +32,11 @@
     		android:layout_height="wrap_content"
     		android:hint="@string/jobNumber"
    			android:inputType="text" />
-    
-	
+      <Button
+        android:id = "@+id/display_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/map" />
     <TableLayout
     	android:id="@+id/middleSection"
     	android:layout_width="fill_parent"

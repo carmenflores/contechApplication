@@ -1,9 +1,12 @@
 package com.contech.dailyworkorders;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 
 
 import android.widget.AdapterView;
@@ -19,7 +22,11 @@ import android.widget.Toast;
 import android.view.View;
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
+import android.net.Uri;
 import android.os.Bundle;
 
 
@@ -32,9 +39,9 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	private ArrayAdapter<Room> adapter;
 	private ArrayList<Room> rooms;
 	
-	private EditText insuredEdit;
-	private EditText jobNumberEdit;
-	private EditText addressEdit;
+	public EditText insuredEdit;
+	public EditText jobNumberEdit;
+	public EditText addressEdit;
 	private EditText crewEdit;
 	private EditText hoursEdit;
 	private EditText workPerformedEdit;
@@ -95,8 +102,12 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	
 	private String subject;
 	private ArrayList<String> fields;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
+		 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		fields = new ArrayList<String>();
@@ -123,15 +134,74 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
                
 	    	}
 	    });
+		insuredEdit = (EditText) findViewById(R.id.insured);
+		jobNumberEdit = (EditText) findViewById(R.id.jobNumber);
+		addressEdit = (EditText) findViewById(R.id.address);
+		Button map_button = (Button) findViewById(R.id.display_map);
+		map_button.setOnClickListener(new View.OnClickListener(){
+			public void onClick(View v){
+				
+				double latitude =0;
+				double longitude=0;
+				String address_m= addressEdit.getText().toString();
+				if ( address_m.isEmpty()){
+					address_m="14 Annis Road,Toronto,ON";
+				}
+				Toast.makeText(MainActivity.this, address_m, Toast.LENGTH_SHORT).show();
+				
+				Geocoder coder = new Geocoder(MainActivity.this, Locale.CANADA);
+				List<Address> addresses;
+				try{
+					addresses=coder.getFromLocationName(address_m, 1);
+					if  (addresses.size() >0){
+						Address addr = addresses.get(0);
+						latitude=addr.getLatitude();
+						longitude=addr.getLongitude();
+					}
+	
+				}catch (Exception e){
+					
+				}finally{
+					
+				}
+				
+		        String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?&daddr=%f,%f (%s)", latitude, longitude,"Insured Location");
+		        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+		        intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+		        try
+		        {
+		            startActivity(intent);
+		        }
+		        catch(ActivityNotFoundException ex)
+		        {
+		            try
+		            {
+		                Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+		                startActivity(unrestrictedIntent);
+		            }
+		            catch(ActivityNotFoundException innerEx)
+		            {
+		            }
+		        }
+				
+				}
+		});
 		
+		RGgarbage = (RadioGroup) findViewById(R.id.RGgarbage);
+		RGgarbage.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (RGgarbage.getCheckedRadioButtonId()!=-1){
+					RGgarbage.clearCheck();
+				}
+			}
+		});
 	    Button submitButton = (Button) findViewById(R.id.button_submit);	
 			submitButton.setOnClickListener(new View.OnClickListener(){
 		    	public void onClick(View v){
 		    		 fields = new ArrayList<String>();
-		    		 
-		    		 insuredEdit = (EditText) findViewById(R.id.insured);
-		    		 jobNumberEdit = (EditText) findViewById(R.id.jobNumber);
-		    		 addressEdit = (EditText) findViewById(R.id.address);
+		    		 subject ="";
 		    		 
 		    		 String jobNumber = jobNumberEdit.getText().toString();
 		    		 subject += jobNumber+ " ";
@@ -305,6 +375,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    					 fields.add("\t" + sample + "\n");
 		    				 }
 		    			 }
+		    		 }
 		    			contentsReturned = (EditText)findViewById(R.id.contentsRet);
 		    			String content = contentsReturned.getText().toString();
                         if (content.length() > 0){
@@ -435,7 +506,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
                          fields.add(materialsString + "\n\n");
 		    		 }
 		    		 
-		    		 RGgarbage = (RadioGroup) findViewById(R.id.RGgarbage);
+		    		 /* = (RadioGroup) findViewById(R.id.);*/
 		    		 if ( RGgarbage.getCheckedRadioButtonId()!= -1){
 		    			 int id=  RGgarbage.getCheckedRadioButtonId();
 		    			 View radioButton =  RGgarbage.findViewById(id);
@@ -458,11 +529,9 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    		 notes = (EditText) findViewById(R.id.noteSection);
 		    		 String notesString = notes.getText().toString();
 		    		 if(notesString.length() > 0){
-		    			 fields.add("Instructions/Notes for next crew on site:" + notesString +"\n"); 
+		    			 fields.add("Instructions/Notes for next crew on site: \n" + notesString +"\n"); 
 		    		 }
 
-		    			
-		    		 }
 		    		 showSubmitDialog();
 	               
 		    	}
@@ -502,4 +571,5 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 			adapter.notifyDataSetChanged();
 			}
 	}
+	
 }

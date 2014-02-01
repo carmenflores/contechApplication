@@ -7,8 +7,11 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="18" />
-
-    <application
+	    <uses-permission android:name="android.permission.INTERNET" />
+    	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    	<application
         android:name="com.contech.dailyworkorders.DailyWorkOrderApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -19,7 +22,6 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,8 +31,19 @@
             android:label="@string/form_title"
             android:parentActivityName="com.contech.dailyworkorders.MainActivity" >
     	</activity>
+    	<activity
+            android:name="com.contech.dailyworkorders.FileLoaderActivity"
+            android:label="Daily Work Order"
+            android:parentActivityName="com.contech.dailworkorders.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+    	
     
     </application>
-    
-
+     
 </manifest>
