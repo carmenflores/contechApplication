@@ -1,6 +1,7 @@
 package com.contech.dailyworkorders;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,7 +32,7 @@ import android.os.Bundle;
 
 
 
-public class MainActivity extends Activity implements NewRoomDialogFragment.NoticeDialogListener, SubmitDialogFragment.NoticeDialogListener{
+public class MainActivity extends Activity implements NewRoomDialogFragment.NoticeDialogListener, SubmitDialogFragment.NoticeDialogListener, FileLoaderFragment.NoticeDialogListener {
 	
 	private static final int REQUEST_CODE = 10;
 	
@@ -101,6 +102,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	private RadioGroup RGcontentsMan;
 	
 	private String subject;
+	private String path;
 	private ArrayList<String> fields;
 	
 	
@@ -127,6 +129,19 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 
 		});
 	    
+	    Intent textIntent = getIntent();
+	    Uri data = textIntent.getData();
+	    if (data != null){
+			if (textIntent.getType().equals("text/plain")) {
+				path = data.toString();
+	            int start= path.indexOf("/mnt");
+	            path=path.substring(start);
+	            showFileLoaderDialog();
+			}
+	            
+	    }
+	    
+	    
 	    Button button = (Button) findViewById(R.id.button_addRoom);	
 		button.setOnClickListener(new View.OnClickListener(){
 	    	public void onClick(View v){
@@ -145,7 +160,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 				double longitude=0;
 				String address_m= addressEdit.getText().toString();
 				if ( address_m.isEmpty()){
-					address_m="14 Annis Road,Toronto,ON";
+					address_m="";
 				}
 				Toast.makeText(MainActivity.this, address_m, Toast.LENGTH_SHORT).show();
 				
@@ -556,8 +571,19 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		newSubmitFragment.show(getFragmentManager(), "submit");
 	}
 	
+	private void showFileLoaderDialog(){
+		DialogFragment nFileLoaderFragment= FileLoaderFragment.newInstance(path);
+		nFileLoaderFragment.show(getFragmentManager(), "file");
+	}
+	
 	public void onSubmitDialogPositiveClick(DialogFragment dialog){
 
+	}
+	
+	public void onFileLoaderDialogPositiveClick(DialogFragment dialog, String insuredName, String address, String jobNum){
+		insuredEdit.setText(insuredName);
+		jobNumberEdit.setText(jobNum);
+		addressEdit.setText(address);
 	}
 	@Override
 	public void onNewRoomDialogPositiveClick(DialogFragment dialog,
@@ -571,5 +597,6 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 			adapter.notifyDataSetChanged();
 			}
 	}
+
 	
 }

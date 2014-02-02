@@ -24,26 +24,19 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+                
+            </intent-filter>
         </activity>
         
         <activity
             android:name="com.contech.dailyworkorders.FormActivity"
             android:label="@string/form_title"
             android:parentActivityName="com.contech.dailyworkorders.MainActivity" >
-    	</activity>
-    	<activity
-            android:name="com.contech.dailyworkorders.FileLoaderActivity"
-            android:label="Daily Work Order"
-            android:parentActivityName="com.contech.dailworkorders.MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-        </activity>
-    	
-    
+    	</activity>    
     </application>
      
 </manifest>
