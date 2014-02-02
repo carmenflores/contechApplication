@@ -32,6 +32,13 @@
     <string name = "upadRemoved">U/Pad Removed</string>
     <string name = "carpetRemoved">Carpet Removed</string>
     <string name = "flooringRemoved">Flooring Removed</string>
+    <string name = "subFlooring">Sub Flooring</string>
+    <string name = "drywallRemoved">Drywall Removed</string>
+    <string name = "drillHole">Drill Hole</string>
+    <string name = "panellingRemoved">Panelling Removed</string>
+    <string name = "ceilingRemoved">Ceiling Removed</string>
+    <string name = "insulation">Insulation</string>
+            
 	
      <string name="students_pref_file_key">com.contech.dailyworkorders.roomsInfo</string>
 	<item name="list" type="id"/>
@@ -50,8 +57,8 @@
 	<string name="water_category">Water Category :</string>
 	<string name="class_of_water">Class of Water :</string>
 	<string name="please_specify">Please specify...</string>
-		<string name="additional_info">Additional Info.</string>
-		
+	<string name="additional_info">Additional Info.</string>
+	<string name="notes">Notes :</string>	
 	
 	<string name="crew">Crew</string>
 	<string name="hours">Hours</string>

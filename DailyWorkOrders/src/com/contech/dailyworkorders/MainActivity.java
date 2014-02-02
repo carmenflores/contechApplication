@@ -592,6 +592,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 				Toast.makeText(this, "Form fields are incomplete", Toast.LENGTH_SHORT).show();
 			}
 			else{
+			Toast.makeText(this, "Making your room", Toast.LENGTH_SHORT).show();		
 			rooms.add(new Room(name, length, width, height, formFields));
 			((DailyWorkOrderApplication) this.getApplication()).storeRoom();
 			adapter.notifyDataSetChanged();

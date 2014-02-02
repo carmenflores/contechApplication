@@ -71,5 +71,39 @@
         android:layout_height="wrap_content"
         android:text="@string/flooringRemoved" />
 
+    <CheckBox
+        android:id="@+id/checkbox_subFlooring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subFlooring" />
 
+    <CheckBox
+        android:id="@+id/checkbox_drywallRemoved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/drywallRemoved" />
+    
+    <CheckBox
+        android:id="@+id/checkbox_drillHole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/drillHole" />
+    
+    <CheckBox
+        android:id="@+id/checkbox_panellingRemoved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/panellingRemoved" />
+        
+    <CheckBox
+        android:id="@+id/checkbox_ceilingRemoved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ceilingRemoved" />
+    
+    <CheckBox
+        android:id="@+id/checkbox_insulation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/insulation" />
 </LinearLayout>

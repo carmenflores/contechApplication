@@ -40,8 +40,8 @@ public class DailyWorkOrderApplication extends Application{
 	
 	public void storeRoom(){
     	SharedPreferences.Editor editor = sharedPref.edit();
-    	String studentsJSON = gson.toJson(rooms);
-		editor.putString("Rooms", studentsJSON);
+    	String roomJSON = gson.toJson(rooms);
+		editor.putString("Rooms", roomJSON);
 		editor.commit();
 	}
 	

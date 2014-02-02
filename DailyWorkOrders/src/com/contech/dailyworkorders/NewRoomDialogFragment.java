@@ -21,6 +21,13 @@ public class NewRoomDialogFragment extends DialogFragment {
 	CheckBox isUpadRemoved;
 	CheckBox isCarpetRemoved;
 	CheckBox isFlooringRemoved;
+	CheckBox isSubFlooring;
+	CheckBox isDrywallRemoved;
+	CheckBox isDrillHole;
+	CheckBox isPanellingRemoved;
+	CheckBox isCeilingRemoved;
+	CheckBox isInsulation;
+
 	HashMap<String, Boolean> formBooleans;
 	
 	/* TO SEND DATA BACK TO ACTIVITY */
@@ -75,6 +82,24 @@ public class NewRoomDialogFragment extends DialogFragment {
 		isFlooringRemoved = (CheckBox) view.findViewById(R.id.checkbox_flooringRemoved);
 		isFlooringRemoved.setChecked(false);
 		
+		isSubFlooring = (CheckBox) view.findViewById(R.id.checkbox_subFlooring);
+		isSubFlooring.setChecked(false);
+		
+		isDrywallRemoved = (CheckBox) view.findViewById(R.id.checkbox_drywallRemoved);
+		isDrywallRemoved.setChecked(false);
+		
+		isDrillHole = (CheckBox) view.findViewById(R.id.checkbox_drillHole);
+		isDrillHole.setChecked(false);
+		
+		isPanellingRemoved = (CheckBox) view.findViewById(R.id.checkbox_panellingRemoved);
+		isPanellingRemoved.setChecked(false);
+		
+		isCeilingRemoved = (CheckBox) view.findViewById(R.id.checkbox_ceilingRemoved);
+		isCeilingRemoved.setChecked(false);
+		
+		isInsulation = (CheckBox) view.findViewById(R.id.checkbox_insulation);
+		isInsulation.setChecked(false);
+		
 		builder.setPositiveButton(
 				getString(R.string.dialog_positive_new_room),
 				new DialogInterface.OnClickListener() {
@@ -104,7 +129,13 @@ public class NewRoomDialogFragment extends DialogFragment {
 						 formBooleans.put("U/Pad Removed", isUpadRemoved.isChecked());
 						 formBooleans.put("Carpet Removed", isCarpetRemoved.isChecked());
 						 formBooleans.put("Flooring Removed", isFlooringRemoved.isChecked());
-						 
+						 formBooleans.put("Sub Flooring", isSubFlooring.isChecked());
+						 formBooleans.put("Drywall Removed", isDrywallRemoved.isChecked());
+						 formBooleans.put("Drill Hole", isDrillHole.isChecked());
+						 formBooleans.put("Panelling Removed", isPanellingRemoved.isChecked());
+						 formBooleans.put("Ceiling Removed", isCeilingRemoved.isChecked());
+						 formBooleans.put("Insulation", isInsulation.isChecked());
+
 						mListener.onNewRoomDialogPositiveClick(
 								NewRoomDialogFragment.this, nameToSend, length, width, height, formBooleans);
 						dialog.dismiss();
