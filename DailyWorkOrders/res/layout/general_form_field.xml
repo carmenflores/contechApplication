@@ -13,7 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/amount"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:visibility="gone"
+         />
       
     </TableRow>
     <TableRow
@@ -34,12 +36,14 @@
     <CheckBox
         android:id="@+id/checkbox_general3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
     <CheckBox
         android:id="@+id/checkbox_general4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
     
     <!--  For Insulation -->
     <CheckBox
@@ -139,9 +143,8 @@
 	        android:layout_height="wrap_content"
 	        android:visibility="gone"/>
 	    
-	    <!--  checkbox 9 is for LF edittext -->
         <CheckBox
-	        android:id="@+id/checkbox_additionalInfo9"
+	        android:id="@+id/checkbox_additionalInfoLF"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:visibility="gone"/>
@@ -160,7 +163,74 @@
         	android:textStyle="bold"
         	android:textSize="16sp"
         	android:layout_marginRight="12sp"
-        	android:text="Lf" 
+        	android:text="LF" 
+            android:visibility="gone"/>
+	            <CheckBox
+	        android:id="@+id/checkbox_additionalInfoPcs"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:visibility="gone"/>
+	    	    <EditText
+            android:id="@+id/edittext_additionalInfo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="12sp"
+            android:visibility="gone"/>
+	    	    <TextView
+	        android:id="@+id/textview_additionalInfo2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="Pcs" 
+            android:visibility="gone"/>
+	    	<CheckBox
+	        android:id="@+id/checkbox_additionalInfoContentsManip"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:visibility="gone"/>
+	    		    	    <TextView
+	        android:id="@+id/textview_additionalInfo3"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="  # of Crew" 
+            android:visibility="gone"/>
+	    	    <EditText
+            android:id="@+id/edittext_additionalInfo3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="12sp"
+            android:visibility="gone"/>
+	    	    	    		    	    <TextView
+	        android:id="@+id/textview_additionalInfo4"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text=" x " 
+            android:visibility="gone"/>
+	    	    <EditText
+            android:id="@+id/edittext_additionalInfo4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_marginRight="12sp"
+            android:visibility="gone"/>
+	    	    <TextView
+	        android:id="@+id/textview_additionalInfo5"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:textStyle="bold"
+        	android:textSize="16sp"
+        	android:layout_marginRight="12sp"
+        	android:text="HR" 
             android:visibility="gone"/>
     </TableRow>
 </TableLayout>

@@ -27,6 +27,15 @@ public class NewRoomDialogFragment extends DialogFragment {
 	CheckBox isPanellingRemoved;
 	CheckBox isCeilingRemoved;
 	CheckBox isInsulation;
+	CheckBox isCasingRemoved;
+	CheckBox isJambRemoved;
+	CheckBox isDoorsDetached;
+	CheckBox isBaseboardRemoved;
+	CheckBox isQuarterRoundRemoved;
+	CheckBox isCrownMoulding;
+	CheckBox isKitchenCabinet;
+	CheckBox isAccessPanelRemoved;
+	CheckBox isContentsManipulation;
 
 	HashMap<String, Boolean> formBooleans;
 	
@@ -100,6 +109,33 @@ public class NewRoomDialogFragment extends DialogFragment {
 		isInsulation = (CheckBox) view.findViewById(R.id.checkbox_insulation);
 		isInsulation.setChecked(false);
 		
+		isCasingRemoved = (CheckBox) view.findViewById(R.id.checkbox_casingRemoved);
+		isCasingRemoved.setChecked(false);
+		
+		isJambRemoved = (CheckBox) view.findViewById(R.id.checkbox_jambRemoved);
+		isJambRemoved.setChecked(false);
+		
+		isDoorsDetached = (CheckBox) view.findViewById(R.id.checkbox_doorsDetached);
+		isDoorsDetached.setChecked(false);
+		
+		isBaseboardRemoved = (CheckBox) view.findViewById(R.id.checkbox_baseboardRemoved);
+		isBaseboardRemoved.setChecked(false);
+		
+		isQuarterRoundRemoved = (CheckBox) view.findViewById(R.id.checkbox_quarterRoundRemoved);
+		isQuarterRoundRemoved.setChecked(false);
+		
+		isCrownMoulding = (CheckBox) view.findViewById(R.id.checkbox_crownMoulding);
+		isCrownMoulding.setChecked(false);
+		
+		isKitchenCabinet = (CheckBox) view.findViewById(R.id.checkbox_kitchenCabinet);
+		isKitchenCabinet.setChecked(false);
+		
+		isAccessPanelRemoved = (CheckBox) view.findViewById(R.id.checkbox_accessPanelRemoved);
+		isAccessPanelRemoved.setChecked(false);
+
+		isContentsManipulation = (CheckBox) view.findViewById(R.id.checkbox_contentsManip);
+		isContentsManipulation.setChecked(false);
+		
 		builder.setPositiveButton(
 				getString(R.string.dialog_positive_new_room),
 				new DialogInterface.OnClickListener() {
@@ -135,6 +171,15 @@ public class NewRoomDialogFragment extends DialogFragment {
 						 formBooleans.put("Panelling Removed", isPanellingRemoved.isChecked());
 						 formBooleans.put("Ceiling Removed", isCeilingRemoved.isChecked());
 						 formBooleans.put("Insulation", isInsulation.isChecked());
+						 formBooleans.put("Casing Removed", isCasingRemoved.isChecked());
+						 formBooleans.put("Jamb Removed", isJambRemoved.isChecked());
+						 formBooleans.put("Doors Detached", isDoorsDetached.isChecked());
+						 formBooleans.put("Baseboard Removed", isBaseboardRemoved.isChecked());
+						 formBooleans.put("1/4 Round Removed", isQuarterRoundRemoved.isChecked());
+						 formBooleans.put("Crown Moulding", isCrownMoulding.isChecked());
+						 formBooleans.put("Kitchen Cabinet", isKitchenCabinet.isChecked());
+						 formBooleans.put("Access Panel Removed", isAccessPanelRemoved.isChecked());
+						 formBooleans.put("Contents Manipulation", isContentsManipulation.isChecked());
 
 						mListener.onNewRoomDialogPositiveClick(
 								NewRoomDialogFragment.this, nameToSend, length, width, height, formBooleans);

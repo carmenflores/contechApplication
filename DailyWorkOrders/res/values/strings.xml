@@ -38,7 +38,15 @@
     <string name = "panellingRemoved">Panelling Removed</string>
     <string name = "ceilingRemoved">Ceiling Removed</string>
     <string name = "insulation">Insulation</string>
-            
+    <string name = "casingRemoved">Casing Removed</string>
+    <string name = "jambRemoved">Jamb Removed</string>
+    <string name = "doorsDetached">Doors Detached</string>
+    <string name = "baseboardRemoved">Baseboard Removed</string>
+    <string name = "quarterRoundRemoved">&#188; Round Removed</string>
+    <string name = "crownMoulding">Crown Moulding</string>
+    <string name = "kitchenCabinet">Kitchen Cabinet</string>
+    <string name = "accessPanelRemoved">Access Panel Removed</string>
+    <string name = "contentsManip">Contents Manipulation</string>
 	
      <string name="students_pref_file_key">com.contech.dailyworkorders.roomsInfo</string>
 	<item name="list" type="id"/>

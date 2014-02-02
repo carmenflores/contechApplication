@@ -41,69 +41,197 @@
         android:paddingBottom="10dp"
         android:textSize="19sp" />
 
-    <CheckBox
-        android:id="@+id/checkbox_waterExtracted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/waterExtracted" />
+    <TableLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:stretchColumns="1">
+ 
+  		<TableRow
+       		android:id="@+id/tableRowForm1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
 
-    <CheckBox
-        android:id="@+id/checkbox_carpetToSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/carpetToSave" />
+    		<CheckBox
+		        android:id="@+id/checkbox_waterExtracted"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/waterExtracted" />
 
-    <CheckBox
-        android:id="@+id/checkbox_upadRemoved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/upadRemoved" />
-
-    <CheckBox
-        android:id="@+id/checkbox_carpetRemoved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/carpetRemoved" />
-
-    <CheckBox
-        android:id="@+id/checkbox_flooringRemoved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/flooringRemoved" />
-
-    <CheckBox
-        android:id="@+id/checkbox_subFlooring"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/subFlooring" />
-
-    <CheckBox
-        android:id="@+id/checkbox_drywallRemoved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/drywallRemoved" />
+		    <CheckBox
+		        android:id="@+id/checkbox_carpetToSave"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/carpetToSave" />
+		          
     
-    <CheckBox
-        android:id="@+id/checkbox_drillHole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/drillHole" />
+		</TableRow>
+ 		<TableRow
+    		android:id="@+id/tableRowForm2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+		    <CheckBox
+		        android:id="@+id/checkbox_upadRemoved"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/upadRemoved" />
+		
+		    <CheckBox
+		        android:id="@+id/checkbox_carpetRemoved"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/carpetRemoved" />
+          
     
-    <CheckBox
-        android:id="@+id/checkbox_panellingRemoved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/panellingRemoved" />
+		</TableRow>
+  		<TableRow
+      		android:id="@+id/tableRowForm3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+		    <CheckBox
+		        android:id="@+id/checkbox_flooringRemoved"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/flooringRemoved" />
+		
+		    <CheckBox
+		        android:id="@+id/checkbox_subFlooring"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/subFlooring" />
+          
+    
+			</TableRow>
+  			<TableRow
+     			android:id="@+id/tableRowForm4"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+
+			    <CheckBox
+			        android:id="@+id/checkbox_drywallRemoved"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/drywallRemoved" />
+			    
+			    <CheckBox
+			        android:id="@+id/checkbox_drillHole"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/drillHole" />
+          
+    
+			</TableRow>
+  			<TableRow
+       			android:id="@+id/tableRowForm5"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+
+			    <CheckBox
+			        android:id="@+id/checkbox_panellingRemoved"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/panellingRemoved" />
+			        
+			    <CheckBox
+			        android:id="@+id/checkbox_ceilingRemoved"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/ceilingRemoved" />
+			          
+    
+			</TableRow>
+  			<TableRow
+				android:id="@+id/tableRowForm6"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+
+			    <CheckBox
+			        android:id="@+id/checkbox_insulation"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/insulation" />
+			    
+			    <CheckBox
+			        android:id="@+id/checkbox_casingRemoved"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/casingRemoved" />
+         
+   
+			</TableRow>
+  			<TableRow
+       			android:id="@+id/tableRowForm7"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+
+			    <CheckBox
+			        android:id="@+id/checkbox_jambRemoved"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/jambRemoved" />
+			        
+			    <CheckBox
+			        android:id="@+id/checkbox_doorsDetached"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/doorsDetached" />
+          
+    
+			</TableRow>
+  			<TableRow
+       			android:id="@+id/tableRowForm8"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
         
-    <CheckBox
-        android:id="@+id/checkbox_ceilingRemoved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ceilingRemoved" />
+			    <CheckBox
+			        android:id="@+id/checkbox_baseboardRemoved"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/baseboardRemoved" />
+			    
+			    <CheckBox
+			        android:id="@+id/checkbox_quarterRoundRemoved"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/quarterRoundRemoved" />
     
-    <CheckBox
-        android:id="@+id/checkbox_insulation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/insulation" />
+			</TableRow>
+  			<TableRow
+       			android:id="@+id/tableRowForm9"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+        
+			    <CheckBox
+			        android:id="@+id/checkbox_crownMoulding"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/crownMoulding" />
+			    
+			    <CheckBox
+			        android:id="@+id/checkbox_kitchenCabinet"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/kitchenCabinet" />
+    
+			</TableRow>
+  			<TableRow
+       			android:id="@+id/tableRowForm10"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+        
+			    <CheckBox
+			        android:id="@+id/checkbox_accessPanelRemoved"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/accessPanelRemoved" />
+			    
+			    <CheckBox
+			        android:id="@+id/checkbox_contentsManip"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/contentsManip" />
+    
+			</TableRow>
+		</TableLayout>
 </LinearLayout>
