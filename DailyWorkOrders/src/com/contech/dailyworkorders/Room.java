@@ -7,6 +7,7 @@ public class Room {
 	
 	private String name, length, width, height;
 	private HashMap<String, String> room_specs;
+	private String[] room_info;
 	
 	//Room Constructor
 	public Room(String roomName, String roomLength, String roomWidth, String roomHeight, HashMap<String, Boolean> requiredFields) {
@@ -16,6 +17,7 @@ public class Room {
 		width = roomWidth;
 		height= roomHeight;
 		room_specs = new HashMap<String,String>();
+		room_info = new String[0];
 		
 		for (HashMap.Entry<String, Boolean> entry:requiredFields.entrySet()){
 			if (entry.getValue()){

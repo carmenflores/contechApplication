@@ -47,6 +47,8 @@
     <string name = "kitchenCabinet">Kitchen Cabinet</string>
     <string name = "accessPanelRemoved">Access Panel Removed</string>
     <string name = "contentsManip">Contents Manipulation</string>
+	<string name = "additionalNotes">Additional Notes</string>
+        <string name = "area">Area: </string>
 	
      <string name="students_pref_file_key">com.contech.dailyworkorders.roomsInfo</string>
 	<item name="list" type="id"/>

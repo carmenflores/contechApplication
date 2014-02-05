@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+<TableLayout 
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
@@ -45,7 +48,6 @@
         android:layout_height="wrap_content"
         android:visibility="gone"/>
     
-    <!--  For Insulation -->
     <CheckBox
         android:id="@+id/checkbox_general5"
         android:layout_width="wrap_content"
@@ -72,14 +74,28 @@
         android:layout_height="wrap_content"
         android:visibility="gone"/>
         
+     <EditText
+            android:id="@+id/edittext_additionalNotes"
+            android:lines="8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minLines="1"
+            android:gravity="start"
+            android:inputType="textMultiLine" 
+       		android:visibility="gone"/>
     </TableRow>
+    </TableLayout>
+    
+    <TableLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
     <TableRow
         android:id="@+id/tableRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >   
         <TextView
         android:id="@+id/textView_additionalinfo"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/notes"
         android:textSize="16sp" />
@@ -160,7 +176,6 @@
 	        android:id="@+id/textview_additionalInfo1"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:textStyle="bold"
         	android:textSize="16sp"
         	android:layout_marginRight="12sp"
         	android:text="LF" 
@@ -181,7 +196,6 @@
 	        android:id="@+id/textview_additionalInfo2"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:textStyle="bold"
         	android:textSize="16sp"
         	android:layout_marginRight="12sp"
         	android:text="Pcs" 
@@ -195,7 +209,6 @@
 	        android:id="@+id/textview_additionalInfo3"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:textStyle="bold"
         	android:textSize="16sp"
         	android:layout_marginRight="12sp"
         	android:text="  # of Crew" 
@@ -207,30 +220,199 @@
             android:inputType="phone"
             android:layout_marginRight="12sp"
             android:visibility="gone"/>
-	    	    	    		    	    <TextView
+	  <TextView
 	        android:id="@+id/textview_additionalInfo4"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:textStyle="bold"
         	android:textSize="16sp"
         	android:layout_marginRight="12sp"
         	android:text=" x " 
             android:visibility="gone"/>
-	    	    <EditText
+	<EditText
             android:id="@+id/edittext_additionalInfo4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:layout_marginRight="12sp"
             android:visibility="gone"/>
-	    	    <TextView
+    <TextView
 	        android:id="@+id/textview_additionalInfo5"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:textStyle="bold"
         	android:textSize="16sp"
         	android:layout_marginRight="12sp"
         	android:text="HR" 
             android:visibility="gone"/>
     </TableRow>
+    </TableLayout>
+    <TableLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >   
+        <TextView
+        android:id="@+id/textView_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/area"
+        android:textSize="16sp"
+        android:visibility="gone" />
+      
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >  
+    <CheckBox
+	        android:id="@+id/checkbox_areaMeasured"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:visibility="gone"/> 
+    <TextView
+        android:id="@+id/textView_areaString1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="L" 
+        android:textSize="16sp"
+        android:layout_marginRight="12sp"
+        android:visibility="gone" />
+    <EditText
+        android:id="@+id/edittext_areaLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:layout_marginRight="12sp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/textView_areaString2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" x W " 
+        android:textSize="16sp"
+        android:layout_marginRight="12sp"
+        android:visibility="gone" />
+    <EditText
+        android:id="@+id/edittext_areaWidth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:layout_marginRight="12sp"
+        android:visibility="gone"/>
+   <TextView
+        android:id="@+id/textView_areaString3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Sq Ft" 
+        android:textSize="16sp"
+        android:layout_marginRight="12sp"
+        android:visibility="gone" />
+   
+    <CheckBox
+	        android:id="@+id/checkbox_areaMeasured2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:visibility="gone"/> 
+    <EditText
+        android:id="@+id/edittext_areaLF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:layout_marginRight="12sp"
+        android:visibility="gone"/>
+   <TextView
+        android:id="@+id/textView_areaString4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" LF" 
+        android:textSize="16sp"
+        android:layout_marginRight="12sp"
+        android:visibility="gone" /> 
+            <CheckBox
+	        android:id="@+id/checkbox_areaDisposed"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:visibility="gone"/> 
+	            <CheckBox
+	        android:id="@+id/checkbox_areaSaved"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:visibility="gone"/> 
+   </TableRow>
+   </TableLayout>
+       <TableLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+   <TableRow
+        android:id="@+id/tableRow7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >   
+   <CheckBox
+       android:id="@+id/checkbox_area1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" 
+        android:visibility="gone" />
+   <CheckBox
+       android:id="@+id/checkbox_area2"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" 
+        android:visibility="gone" />
+   <CheckBox
+       android:id="@+id/checkbox_area3"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" 
+        android:visibility="gone" />
+   <CheckBox
+       android:id="@+id/checkbox_area4"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" 
+        android:visibility="gone" />
+      <CheckBox
+       android:id="@+id/checkbox_chair"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" 
+        android:visibility="gone" />
+   <TextView
+        android:id="@+id/textView_areaNotes1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Chair Rail" 
+        android:textSize="16sp"
+        android:visibility="gone" />
+   <EditText
+        android:id="@+id/edittext_areaNotes1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:layout_marginRight="12sp"
+        android:visibility="gone"/>
+      <TextView
+        android:id="@+id/textView_areaNotes2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" LF" 
+        android:textSize="16sp"
+        android:visibility="gone" />
+            <CheckBox
+       android:id="@+id/checkbox_numStairs"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" 
+        android:visibility="gone" />
+      <TextView
+        android:id="@+id/textView_areaNotes3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" # of stairs " 
+        android:textSize="16sp"
+        android:visibility="gone" />
+   <EditText
+        android:id="@+id/edittext_areaNotes2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:layout_marginRight="12sp"
+        android:visibility="gone"/>
+    </TableRow>
 </TableLayout>
+</LinearLayout>

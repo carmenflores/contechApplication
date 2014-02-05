@@ -36,7 +36,8 @@ public class NewRoomDialogFragment extends DialogFragment {
 	CheckBox isKitchenCabinet;
 	CheckBox isAccessPanelRemoved;
 	CheckBox isContentsManipulation;
-
+	CheckBox isAdditionalNotes;
+	
 	HashMap<String, Boolean> formBooleans;
 	
 	/* TO SEND DATA BACK TO ACTIVITY */
@@ -136,6 +137,9 @@ public class NewRoomDialogFragment extends DialogFragment {
 		isContentsManipulation = (CheckBox) view.findViewById(R.id.checkbox_contentsManip);
 		isContentsManipulation.setChecked(false);
 		
+		isAdditionalNotes = (CheckBox) view.findViewById(R.id.checkbox_additionalNotes);
+		isAdditionalNotes.setChecked(false);
+		
 		builder.setPositiveButton(
 				getString(R.string.dialog_positive_new_room),
 				new DialogInterface.OnClickListener() {
@@ -180,6 +184,7 @@ public class NewRoomDialogFragment extends DialogFragment {
 						 formBooleans.put("Kitchen Cabinet", isKitchenCabinet.isChecked());
 						 formBooleans.put("Access Panel Removed", isAccessPanelRemoved.isChecked());
 						 formBooleans.put("Contents Manipulation", isContentsManipulation.isChecked());
+						 formBooleans.put("Additional Notes", isAdditionalNotes.isChecked());
 
 						mListener.onNewRoomDialogPositiveClick(
 								NewRoomDialogFragment.this, nameToSend, length, width, height, formBooleans);
