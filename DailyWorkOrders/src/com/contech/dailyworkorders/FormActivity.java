@@ -10,10 +10,12 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.Spanned;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class FormActivity extends Activity implements FormDialogFragment.NoticeDialogListener{
@@ -24,6 +26,8 @@ public class FormActivity extends Activity implements FormDialogFragment.NoticeD
 	private HashMap<String, String> roomFields;
 	private ArrayList<String> specs;
 	private ArrayList<String> toDisplay;
+	private String roomName;
+	private String test;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,13 +48,18 @@ public class FormActivity extends Activity implements FormDialogFragment.NoticeD
 		//Set title to room name
 		setTitle(curRoom.toString()+" Form ");
 		
+
 		//Create specifications array and array to display
 		for (HashMap.Entry<String, String> entry:curRoom.getRoom_specs().entrySet()){
 				specs.add(entry.getKey());
 				toDisplay.add(entry.getKey() +"          "+ entry.getValue());
 		}
+
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, toDisplay);
 	    listView.setAdapter(adapter);
+
+
+	    
 	    
 	    listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -61,6 +70,7 @@ public class FormActivity extends Activity implements FormDialogFragment.NoticeD
 			}
 
 		});
+	    
 		
 	}
 	private void showFieldDialog(int position) {
@@ -72,6 +82,8 @@ public class FormActivity extends Activity implements FormDialogFragment.NoticeD
 		DialogFragment newFragment = FormDialogFragment.newInstance();
 		newFragment.setArguments(arg);
 		newFragment.show(getFragmentManager(), "form");
+		
+
 	}
 	
 	@Override
@@ -85,6 +97,53 @@ public class FormActivity extends Activity implements FormDialogFragment.NoticeD
 		toDisplay.set(position, field +"          "+ information);
 		adapter.notifyDataSetChanged();
 		
-			
+
 	}
+	
+	@Override  
+	public void onBackPressed()   
+	{  
+		test= curRoom.toString() + "| |";
+		//Create specifications array and array to display
+		for (HashMap.Entry<String, String> entry:curRoom.getRoom_specs().entrySet()){
+				test += entry.getKey() +" : "+ entry.getValue() + "|";
+		}
+		test += " |";
+		roomName = curRoom.toString();
+
+		Intent intent = new Intent(this, MainActivity.class);
+		Bundle b = new Bundle();
+		b.putString("prevRoomLookedAt", roomName);
+		b.putString(roomName, test);
+		intent.putExtras(b);
+		startActivity(intent);
+		
+		FormActivity.super.onBackPressed();
+	}	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	    // Respond to the action bar's Up/Home button
+	    case android.R.id.home:
+			test= curRoom.toString() + "| |";
+			//Create specifications array and array to display
+			for (HashMap.Entry<String, String> entry:curRoom.getRoom_specs().entrySet()){
+					test += entry.getKey() +" : "+ entry.getValue() + "|";
+			}
+			test += " |";
+			roomName = curRoom.toString();
+
+
+			Intent intent = new Intent(this, MainActivity.class);
+			Bundle b = new Bundle();
+			b.putString("prevRoomLookedAt", roomName);
+			b.putString(roomName, test);
+			intent.putExtras(b);
+			startActivity(intent);
+						
+			}
+	    return super.onOptionsItemSelected(item);
+	}
+	
 }

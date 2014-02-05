@@ -1025,7 +1025,7 @@ public class FormDialogFragment extends DialogFragment {
 							checkSwitch = 1;
 						}
 						if(additionalInfoContentsManip.isChecked()){
-							information += " # of Crew " + additionalInfoContentsManipedit.getText() + " x " + additionalInfoContentsManipedit2.getText() + " HR, &" ;
+							information += " # of Crew " + additionalInfoContentsManipedit.getText() + " x " + additionalInfoContentsManipedit2.getText() + " HR &" ;
 							checkSwitch = 1;
 						}
 						if(checkAdditionalNotes == 1){

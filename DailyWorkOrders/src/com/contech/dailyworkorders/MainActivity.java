@@ -105,7 +105,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	private String path;
 	private ArrayList<String> fields;
 	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -129,6 +129,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 
 		});
 	    
+
 	    Intent textIntent = getIntent();
 	    Uri data = textIntent.getData();
 	    if (data != null){
@@ -217,7 +218,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    	public void onClick(View v){
 		    		 fields = new ArrayList<String>();
 		    		 subject ="";
-		    		 
+
 		    		 String jobNumber = jobNumberEdit.getText().toString();
 		    		 subject += jobNumber+ " ";
 		    		 fields.add(jobNumber + " ");
@@ -577,7 +578,8 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	}
 	
 	public void onSubmitDialogPositiveClick(DialogFragment dialog){
-
+		/*((DailyWorkOrderApplication) this.getApplication()).clearRooms();
+		adapter.notifyDataSetChanged();*/
 	}
 	
 	public void onFileLoaderDialogPositiveClick(DialogFragment dialog, String insuredName, String address, String jobNum){
