@@ -1,6 +1,7 @@
 package com.contech.dailyworkorders;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import com.contech.dailyworkorders.R;
 
@@ -30,6 +31,7 @@ public class NewRoomDialogFragment extends DialogFragment {
 	CheckBox isCasingRemoved;
 	CheckBox isJambRemoved;
 	CheckBox isDoorsDetached;
+	CheckBox isWallInsulation;
 	CheckBox isBaseboardRemoved;
 	CheckBox isQuarterRoundRemoved;
 	CheckBox isCrownMoulding;
@@ -110,6 +112,9 @@ public class NewRoomDialogFragment extends DialogFragment {
 		isInsulation = (CheckBox) view.findViewById(R.id.checkbox_insulation);
 		isInsulation.setChecked(false);
 		
+		isWallInsulation = (CheckBox) view.findViewById(R.id.checkbox_wall);
+		isWallInsulation.setChecked(false);
+		
 		isCasingRemoved = (CheckBox) view.findViewById(R.id.checkbox_casingRemoved);
 		isCasingRemoved.setChecked(false);
 		
@@ -138,7 +143,7 @@ public class NewRoomDialogFragment extends DialogFragment {
 		isContentsManipulation.setChecked(false);
 		
 		isAdditionalNotes = (CheckBox) view.findViewById(R.id.checkbox_additionalNotes);
-		isAdditionalNotes.setChecked(false);
+		isAdditionalNotes.setChecked(true);
 		
 		builder.setPositiveButton(
 				getString(R.string.dialog_positive_new_room),
@@ -165,16 +170,17 @@ public class NewRoomDialogFragment extends DialogFragment {
 						 String height = heightText.getText().toString();
 						 
 						 formBooleans.put( "Water Extracted", isWaterExtracted.isChecked());
-						 formBooleans.put("Lift Carpet to Save", isCarpetToSave.isChecked());
+						 formBooleans.put("Carpet Lifted", isCarpetToSave.isChecked());
 						 formBooleans.put("U/Pad Removed", isUpadRemoved.isChecked());
 						 formBooleans.put("Carpet Removed", isCarpetRemoved.isChecked());
 						 formBooleans.put("Flooring Removed", isFlooringRemoved.isChecked());
 						 formBooleans.put("Sub Flooring", isSubFlooring.isChecked());
 						 formBooleans.put("Drywall Removed", isDrywallRemoved.isChecked());
 						 formBooleans.put("Drill Hole", isDrillHole.isChecked());
-						 formBooleans.put("Panelling Removed", isPanellingRemoved.isChecked());
+						 formBooleans.put("Paneling Removed", isPanellingRemoved.isChecked());
 						 formBooleans.put("Ceiling Removed", isCeilingRemoved.isChecked());
-						 formBooleans.put("Insulation", isInsulation.isChecked());
+						 formBooleans.put("Ceiling Insulation", isInsulation.isChecked());
+						 formBooleans.put("Wall Insulation", isWallInsulation.isChecked());
 						 formBooleans.put("Casing Removed", isCasingRemoved.isChecked());
 						 formBooleans.put("Jamb Removed", isJambRemoved.isChecked());
 						 formBooleans.put("Doors Detached", isDoorsDetached.isChecked());

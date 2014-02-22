@@ -2,6 +2,7 @@ package com.contech.dailyworkorders;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -23,7 +24,7 @@ public class FormActivity extends Activity implements FormDialogFragment.NoticeD
 	private Room curRoom;
 	private ArrayAdapter<String> adapter;
 	private ListView listView;
-	private HashMap<String, String> roomFields;
+	private LinkedHashMap<String, String> roomFields;
 	private ArrayList<String> specs;
 	private ArrayList<String> toDisplay;
 	private String roomName;
@@ -33,7 +34,7 @@ public class FormActivity extends Activity implements FormDialogFragment.NoticeD
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.form_activity);
 		//Create Listview
-		listView = (ListView) findViewById(R.id.listView);
+		listView = (ListView) findViewById(R.id.listView1);
 		//Get rooms
         rooms = ((DailyWorkOrderApplication) this.getApplication()).getRooms();
         
@@ -50,7 +51,7 @@ public class FormActivity extends Activity implements FormDialogFragment.NoticeD
 		
 
 		//Create specifications array and array to display
-		for (HashMap.Entry<String, String> entry:curRoom.getRoom_specs().entrySet()){
+		for (LinkedHashMap.Entry<String, String> entry:curRoom.getRoom_specs().entrySet()){
 				specs.add(entry.getKey());
 				toDisplay.add(entry.getKey() +"          "+ entry.getValue());
 		}
@@ -133,8 +134,7 @@ public class FormActivity extends Activity implements FormDialogFragment.NoticeD
 			}
 			test += " |";
 			roomName = curRoom.toString();
-
-
+			
 			Intent intent = new Intent(this, MainActivity.class);
 			Bundle b = new Bundle();
 			b.putString("prevRoomLookedAt", roomName);

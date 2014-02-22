@@ -6,34 +6,34 @@
 
     <EditText
         android:id="@+id/name_field"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/name_message" />
 
     <EditText
         android:id="@+id/length_field"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/length_message"
         android:inputType="phone" />
 
     <EditText
         android:id="@+id/width_field"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/width_message"
         android:inputType="phone" />
 
     <EditText
         android:id="@+id/height_field"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/height_message"
         android:inputType="phone" />
 
     <TextView
         android:id="@+id/textView_Choose"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/choose"
         android:paddingTop="15dp"
@@ -44,7 +44,7 @@
     <TableLayout 
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
-	    android:stretchColumns="1">
+	    >
  
   		<TableRow
        		android:id="@+id/tableRowForm1"
@@ -61,7 +61,13 @@
 		        android:id="@+id/checkbox_carpetToSave"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="@string/carpetToSave" />
+		        android:text="Carpet Lifted" />
+		    <CheckBox
+			        android:id="@+id/checkbox_additionalNotes"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/additionalNotes" />
+			    
 		          
     
 		</TableRow>
@@ -81,6 +87,11 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:text="@string/carpetRemoved" />
+		    <CheckBox
+			        android:id="@+id/checkbox_wall"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:text="Wall Insulation" />
           
     
 		</TableRow>
@@ -131,7 +142,7 @@
 			        android:id="@+id/checkbox_panellingRemoved"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/panellingRemoved" />
+			        android:text="Paneling Removed" />
 			        
 			    <CheckBox
 			        android:id="@+id/checkbox_ceilingRemoved"
@@ -150,7 +161,7 @@
 			        android:id="@+id/checkbox_insulation"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/insulation" />
+			        android:text="Ceiling Insulation" />
 			    
 			    <CheckBox
 			        android:id="@+id/checkbox_casingRemoved"
@@ -238,11 +249,17 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content">
         
-			    <CheckBox
+		<!--  	    <CheckBox
 			        android:id="@+id/checkbox_additionalNotes"
 			        android:layout_width="fill_parent"
 			        android:layout_height="wrap_content"
 			        android:text="@string/additionalNotes" />
+			    <CheckBox
+			        android:id="@+id/checkbox_additionalNotes"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:text="Wall Insulation" /> -->
+			    
     
 			</TableRow>
 		</TableLayout>

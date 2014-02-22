@@ -40,7 +40,8 @@ public class FormDialogFragment extends DialogFragment {
 	CheckBox additionalInfo7;
 	CheckBox additionalInfo8;
 	CheckBox additionalInfoLF;
-	CheckBox additionalInfoPcs;
+	//CheckBox additionalInfoPcs;
+	TextView additionalInfoPcs;
 	CheckBox additionalInfoContentsManip;
 	EditText additionalInfoLFedit;
 	EditText additionalInfoPcsedit;
@@ -52,6 +53,7 @@ public class FormDialogFragment extends DialogFragment {
 	TextView additionalInfoContentsManipTV;
 	TextView additionalInfoContentsManipTV2;
 	TextView additionalInfoContentsManipTV3;
+	TextView textView_additionalinfo;
 	TextView amountHeaderTV;
 	TextView notesHeaderTV;
 	String information;
@@ -59,16 +61,17 @@ public class FormDialogFragment extends DialogFragment {
 	Integer checkAdditionalNotes;
 
 	Integer checkAreaSwitch;
-	TextView textView_area;
 	//area LXW
-	CheckBox checkbox_areaMeasured;
+	//CheckBox checkbox_areaMeasured;
+	TextView areaMeasured;
 	TextView textView_areaString1;
 	EditText edittext_areaLength;
 	TextView textView_areaString2;
 	EditText edittext_areaWidth;
 	TextView textView_areaString3;
 	//area LF
-	CheckBox checkbox_areaMeasured2;
+	//CheckBox checkbox_areaMeasured2;
+	TextView textView_area;
 	EditText edittext_areaLF;
 	TextView textView_areaString4;
 
@@ -88,6 +91,9 @@ public class FormDialogFragment extends DialogFragment {
 	CheckBox checkbox_numStairs;
 	TextView textView_areaNotes3;
 	EditText edittext_areaNotes2;
+	
+	TextView empHeader;
+	EditText empEdit;
 
 	
 	HashMap<String, Boolean> formBooleans;
@@ -152,7 +158,8 @@ public class FormDialogFragment extends DialogFragment {
 		additionalInfo7 = (CheckBox) view.findViewById(R.id.checkbox_additionalInfo7);
 		additionalInfo8 = (CheckBox) view.findViewById(R.id.checkbox_additionalInfo8);
 		additionalInfoLF = (CheckBox) view.findViewById(R.id.checkbox_additionalInfoLF);
-		additionalInfoPcs = (CheckBox) view.findViewById(R.id.checkbox_additionalInfoPcs);
+		//additionalInfoPcs = (CheckBox) view.findViewById(R.id.checkbox_additionalInfoPcs);
+		additionalInfoPcs = (TextView) view.findViewById(R.id.textview_additionalInfoPcs);
 		additionalInfoContentsManip = (CheckBox) view.findViewById(R.id.checkbox_additionalInfoContentsManip);
 		additionalInfoLFedit = (EditText) view.findViewById(R.id.edittext_additionalInfo1);
 		additionalInfoPcsedit = (EditText) view.findViewById(R.id.edittext_additionalInfo2);
@@ -167,16 +174,16 @@ public class FormDialogFragment extends DialogFragment {
 
 		amountHeaderTV = (TextView) view.findViewById(R.id.textView_amount);
 		notesHeaderTV = (TextView) view.findViewById(R.id.textView_additionalinfo);
-
-
-		 textView_area = (TextView) view.findViewById(R.id.textView_area);
-		 checkbox_areaMeasured = (CheckBox) view.findViewById(R.id.checkbox_areaMeasured);
+		
+		empHeader = (TextView) view.findViewById(R.id.textView_emp);
+		empEdit = (EditText) view.findViewById(R.id.edittext_emp);
+		areaMeasured =  (TextView) view.findViewById(R.id.textView_areaString0);
+		//checkbox_areaMeasured = (CheckBox) view.findViewById(R.id.checkbox_areaMeasured);
 		 textView_areaString1 = (TextView) view.findViewById(R.id.textView_areaString1);
 		 edittext_areaLength = (EditText) view.findViewById(R.id.edittext_areaLength);
 		 textView_areaString2 = (TextView) view.findViewById(R.id.textView_areaString2);
 		 edittext_areaWidth = (EditText) view.findViewById(R.id.edittext_areaWidth);
 		 textView_areaString3 = (TextView) view.findViewById(R.id.textView_areaString3);
-		
 		 checkbox_areaDisposed = (CheckBox) view.findViewById(R.id.checkbox_areaDisposed);
 		 checkbox_areaSaved = (CheckBox) view.findViewById(R.id.checkbox_areaSaved);
 
@@ -190,15 +197,15 @@ public class FormDialogFragment extends DialogFragment {
 		 textView_areaNotes2 = (TextView) view.findViewById(R.id.textView_areaNotes2);
 		 checkbox_numStairs = (CheckBox) view.findViewById(R.id.checkbox_numStairs);
 		 edittext_areaNotes2 = (EditText) view.findViewById(R.id.edittext_areaNotes2);
-		 textView_areaNotes3 = (TextView) view.findViewById(R.id.textView_areaNotes3);
-		 
-	     checkbox_areaMeasured2 = (CheckBox) view.findViewById(R.id.checkbox_areaMeasured2);
+		 //textView_areaNotes3 = (TextView) view.findViewById(R.id.textView_areaNotes3);
+		 textView_additionalinfo = (TextView)view.findViewById(R.id.textView_additionalinfo);
+		 textView_area = (TextView) view.findViewById(R.id.textView_area);
 	     edittext_areaLF = (EditText) view.findViewById(R.id.edittext_areaLF);
 		 textView_areaString4 = (TextView) view.findViewById(R.id.textView_areaString4);
 		 
 		checkAdditionalNotes = 0;
 		
-		if (field.equals("Insulation")){
+		if (field.equals("Ceiling Insulation") || field.equals("Wall Insulation")){
 			
 			amountHeaderTV.setVisibility(View.VISIBLE);
 			
@@ -208,27 +215,17 @@ public class FormDialogFragment extends DialogFragment {
 			general4.setVisibility(View.VISIBLE);
 			general4.setChecked(false);
 			
-			general5.setVisibility(View.VISIBLE);
-			general5.setChecked(false);
-
-			general6.setVisibility(View.VISIBLE);
-			general6.setChecked(false);
-			
-			general7.setVisibility(View.VISIBLE);
-			general7.setChecked(false);
-			
-			general8.setVisibility(View.VISIBLE);
-			general8.setChecked(false);
-			
+			if (field.equals("Ceiling Insulation")){
 			general1.setText("25% C");
-			general2.setText("25% W");
-			general3.setText("50% C");
-			general4.setText("50% W");
-			general5.setText("75% C");
-			general6.setText("75% W");
-			general7.setText("100% C");
-			general8.setText("100% W");
-
+			general2.setText("50% C");
+			general3.setText("75% C");
+			general4.setText("100% C");
+			}else{
+				general1.setText("25% W");
+				general2.setText("50% W");
+				general3.setText("75% W");
+				general4.setText("100% W");
+			}
 			additionalInfo1.setVisibility(View.VISIBLE);
 			additionalInfo1.setChecked(false);
 			additionalInfo2.setVisibility(View.VISIBLE);
@@ -242,16 +239,15 @@ public class FormDialogFragment extends DialogFragment {
 			additionalInfo6.setVisibility(View.VISIBLE);
 			additionalInfo6.setChecked(false);
 			
-			additionalInfo1.setText(Html.fromHtml("Fiberglass Pink- R-12<sub> 4\"</sub>"));
-			additionalInfo2.setText(Html.fromHtml("Fiberglass Pink- R-20<sub> 6\"</sub>"));
+			additionalInfo1.setText(Html.fromHtml("Pink- R-12<sub> 4\"</sub>"));
+			additionalInfo2.setText(Html.fromHtml("Pink- R-20<sub> 6\"</sub>"));
 			additionalInfo3.setText("Rigid Foam");
 			additionalInfo4.setText("Roxul");
 			additionalInfo5.setText("Blow-in");
 			additionalInfo6.setText("Batt");
 			
-			textView_area.setVisibility(View.VISIBLE);
-			checkbox_areaMeasured.setVisibility(View.VISIBLE);
-			checkbox_areaMeasured.setChecked(false);
+			
+			areaMeasured.setVisibility(View.VISIBLE);
 			textView_areaString1.setVisibility(View.VISIBLE);
 			edittext_areaLength.setVisibility(View.VISIBLE);
 			textView_areaString2.setVisibility(View.VISIBLE);
@@ -260,7 +256,7 @@ public class FormDialogFragment extends DialogFragment {
 			
 
 		}
-		else if (field.equals("Water Extracted") || field.equals("Lift Carpet to Save") 
+		else if (field.equals("Water Extracted") || field.equals("Carpet Lifted") 
 				|| field.equals("U/Pad Removed") || field.equals("Carpet Removed") 
 				|| field.equals("Flooring Removed") || field.equals("Sub Flooring")){
 			
@@ -272,10 +268,10 @@ public class FormDialogFragment extends DialogFragment {
 			general4.setVisibility(View.VISIBLE);
 			general4.setChecked(false);
 			
-			general1.setText("25% F");
-			general2.setText("50% F");
-			general3.setText("75% F");
-			general4.setText("100% F");
+			general1.setText(".25 F");
+			general2.setText(".5 F");
+			general3.setText(".75 F");
+			general4.setText("F");
 			
 			if (field.equals("Water Extracted")){
 				additionalInfo1.setVisibility(View.VISIBLE);
@@ -289,10 +285,8 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo2.setText("Grey");
 				additionalInfo3.setText("Black");
 				
-				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setChecked(false);
-				checkbox_areaMeasured.setText("Measured: ");
+				
+				areaMeasured.setVisibility(View.VISIBLE);
 				textView_areaString1.setVisibility(View.VISIBLE);
 				edittext_areaLength.setVisibility(View.VISIBLE);
 				textView_areaString2.setVisibility(View.VISIBLE);
@@ -312,7 +306,7 @@ public class FormDialogFragment extends DialogFragment {
 
 				
 			}
-			else if (field.equals("Lift Carpet to Save")){
+			else if (field.equals("Carpet Lifted")){
 				additionalInfo1.setVisibility(View.VISIBLE);
 				additionalInfo1.setChecked(false);
 				additionalInfoLF.setVisibility(View.VISIBLE);
@@ -324,11 +318,7 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo1.setText("Float to Dry");
 				additionalInfoLF.setText("Cut Seam");
 				
-				
-				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setChecked(false);
-				checkbox_areaMeasured.setText("Measured: ");
+				areaMeasured.setVisibility(View.VISIBLE);
 				textView_areaString1.setVisibility(View.VISIBLE);
 				edittext_areaLength.setVisibility(View.VISIBLE);
 				textView_areaString2.setVisibility(View.VISIBLE);
@@ -358,10 +348,7 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo3.setText("Rubber Cushion");
 				additionalInfo4.setText("Fiber Cushion");
 				
-				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setChecked(false);
-				checkbox_areaMeasured.setText("Measured: ");
+				areaMeasured.setVisibility(View.VISIBLE);
 				textView_areaString1.setVisibility(View.VISIBLE);
 				edittext_areaLength.setVisibility(View.VISIBLE);
 				textView_areaString2.setVisibility(View.VISIBLE);
@@ -391,10 +378,7 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo3.setText("Carpet Tile");
 				additionalInfo4.setText("Glue Down");
 				
-				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setChecked(false);
-				checkbox_areaMeasured.setText("Measured: ");
+				areaMeasured.setVisibility(View.VISIBLE);
 				textView_areaString1.setVisibility(View.VISIBLE);
 				edittext_areaLength.setVisibility(View.VISIBLE);
 				textView_areaString2.setVisibility(View.VISIBLE);
@@ -405,7 +389,7 @@ public class FormDialogFragment extends DialogFragment {
 				checkbox_area1.setChecked(false);
 				checkbox_numStairs.setVisibility(View.VISIBLE);
 				checkbox_numStairs.setChecked(false);
-				textView_areaNotes3.setVisibility(View.VISIBLE);
+				//textView_areaNotes3.setVisibility(View.VISIBLE);
 				edittext_areaNotes2.setVisibility(View.VISIBLE);
 				
 				checkbox_area1.setText("Tack Strips Removed");
@@ -430,10 +414,7 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo4.setText("Vinyl / Linoleum");
 				additionalInfo5.setText("Ceramic");
 				
-				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setChecked(false);
-				checkbox_areaMeasured.setText("Measured: ");
+				areaMeasured.setVisibility(View.VISIBLE);
 				textView_areaString1.setVisibility(View.VISIBLE);
 				edittext_areaLength.setVisibility(View.VISIBLE);
 				textView_areaString2.setVisibility(View.VISIBLE);
@@ -475,10 +456,7 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo7.setText("Sleepers (1x3)\"");
 				additionalInfo8.setText("(2x4)\"");
 				
-				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setChecked(false);
-				checkbox_areaMeasured.setText("Measured: ");
+				areaMeasured.setVisibility(View.VISIBLE);
 				textView_areaString1.setVisibility(View.VISIBLE);
 				edittext_areaLength.setVisibility(View.VISIBLE);
 				textView_areaString2.setVisibility(View.VISIBLE);
@@ -497,7 +475,7 @@ public class FormDialogFragment extends DialogFragment {
 
 		}
 		else if (field.equals("Drywall Removed") || field.equals("Drill Hole") 
-				|| field.equals("Panelling Removed") || field.equals("Baseboard Removed") || field.equals("1/4 Round Removed")){
+				|| field.equals("Paneling Removed") || field.equals("Baseboard Removed") || field.equals("1/4 Round Removed")){
 			
 			amountHeaderTV.setVisibility(View.VISIBLE);
 			
@@ -533,10 +511,7 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo5.setText("5/8\"");
 				additionalInfo6.setText("2'up");
 				
-				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setChecked(false);
-				checkbox_areaMeasured.setText("Measured: ");
+				areaMeasured.setVisibility(View.VISIBLE);
 				textView_areaString1.setVisibility(View.VISIBLE);
 				edittext_areaLength.setVisibility(View.VISIBLE);
 				textView_areaString2.setVisibility(View.VISIBLE);
@@ -555,17 +530,13 @@ public class FormDialogFragment extends DialogFragment {
 			else if (field.equals("Drill Hole")){
 				
 				notesHeaderTV.setVisibility(View.GONE);
-
 				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setChecked(false);
-				checkbox_areaMeasured2.setText("Measured: ");
 				textView_areaString4.setVisibility(View.VISIBLE);
 				edittext_areaLF.setVisibility(View.VISIBLE);
 				
 				
 			}
-			else if (field.equals("Panelling Removed")){
+			else if (field.equals("Paneling Removed")){
 				additionalInfo1.setVisibility(View.VISIBLE);
 				additionalInfo1.setChecked(false);
 				additionalInfo2.setVisibility(View.VISIBLE);
@@ -583,10 +554,7 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo4.setText("High Grade");
 				additionalInfo5.setText("Stain Grade");
 				
-				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setChecked(false);
-				checkbox_areaMeasured.setText("Measured: ");
+				areaMeasured.setVisibility(View.VISIBLE);
 				textView_areaString1.setVisibility(View.VISIBLE);
 				edittext_areaLength.setVisibility(View.VISIBLE);
 				textView_areaString2.setVisibility(View.VISIBLE);
@@ -623,9 +591,6 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo5.setText("Oversized");
 				
 				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setChecked(false);
-				checkbox_areaMeasured2.setText("Measured: ");
 				textView_areaString4.setVisibility(View.VISIBLE);
 				edittext_areaLF.setVisibility(View.VISIBLE);
 
@@ -660,9 +625,6 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo2.setText("3/4\" Shoe Mould");
 
 				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setChecked(false);
-				checkbox_areaMeasured2.setText("Measured: ");
 				textView_areaString4.setVisibility(View.VISIBLE);
 				edittext_areaLF.setVisibility(View.VISIBLE);
 				
@@ -721,10 +683,7 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo4.setText("Ceiling Tile");
 				additionalInfo5.setText("Drop Ceiling");
 				
-				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured.setChecked(false);
-				checkbox_areaMeasured.setText("Measured: ");
+				areaMeasured.setVisibility(View.VISIBLE);
 				textView_areaString1.setVisibility(View.VISIBLE);
 				edittext_areaLength.setVisibility(View.VISIBLE);
 				textView_areaString2.setVisibility(View.VISIBLE);
@@ -771,9 +730,6 @@ public class FormDialogFragment extends DialogFragment {
 			additionalInfo5.setText("Oversized");
 			
 			textView_area.setVisibility(View.VISIBLE);
-			checkbox_areaMeasured2.setVisibility(View.VISIBLE);
-			checkbox_areaMeasured2.setChecked(false);
-			checkbox_areaMeasured2.setText("Measured: ");
 			textView_areaString4.setVisibility(View.VISIBLE);
 			edittext_areaLF.setVisibility(View.VISIBLE);
 			
@@ -804,19 +760,47 @@ public class FormDialogFragment extends DialogFragment {
 			
 			if (field.equals("Casing Removed")){
 				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setChecked(false);
-				checkbox_areaMeasured2.setText("Measured: ");
 				textView_areaString4.setVisibility(View.VISIBLE);
 				edittext_areaLF.setVisibility(View.VISIBLE);
+				additionalInfo1.setVisibility(View.VISIBLE);
+				additionalInfo1.setChecked(false);
+				additionalInfo2.setVisibility(View.VISIBLE);
+				additionalInfo2.setChecked(false);
+				additionalInfo3.setVisibility(View.VISIBLE);
+				additionalInfo3.setChecked(false);
+				additionalInfo4.setVisibility(View.VISIBLE);
+				additionalInfo4.setChecked(false);
+				additionalInfo5.setVisibility(View.VISIBLE);
+				additionalInfo5.setChecked(false);				
+				additionalInfo6.setVisibility(View.VISIBLE);
+				additionalInfo6.setChecked(false);
+				
+				additionalInfo1.setText("2\"");
+				additionalInfo2.setText("2 1/2\"");
+				additionalInfo3.setText("3\"");
+				additionalInfo4.setText("3 1/2\"");
+				additionalInfo5.setText("4\"");
+				additionalInfo6.setText("Oversized");
 			}
 			else if (field.equals("Jamb Removed")){
 				
 				additionalInfoPcs.setVisibility(View.VISIBLE);
-				additionalInfoPcs.setChecked(false);
-				additionalInfoPcs.setText("Measured");
 				additionalInfoPcsedit.setVisibility(View.VISIBLE);
 				additionalInfoPcsTV.setVisibility(View.VISIBLE);
+				additionalInfo1.setVisibility(View.VISIBLE);
+				additionalInfo1.setChecked(false);
+				additionalInfo2.setVisibility(View.VISIBLE);
+				additionalInfo2.setChecked(false);
+				additionalInfo3.setVisibility(View.VISIBLE);
+				additionalInfo3.setChecked(false);
+				additionalInfo4.setVisibility(View.VISIBLE);
+				additionalInfo4.setChecked(false);
+				
+				additionalInfo1.setText("Standard");
+				additionalInfo2.setText("MDF");
+				additionalInfo3.setText("Hardwood");
+				additionalInfo4.setText("Stain Grade");
+				
 			}
 			else if (field.equals("Doors Detached")){
 				additionalInfo1.setVisibility(View.VISIBLE);
@@ -831,7 +815,11 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo5.setChecked(false);				
 				additionalInfo6.setVisibility(View.VISIBLE);
 				additionalInfo6.setChecked(false);
+				empHeader.setVisibility(View.VISIBLE);
+				empEdit.setVisibility(View.VISIBLE);
 				
+				textView_additionalinfo.setText("Type:");
+				empHeader.setText("Quantity:");
 				additionalInfo1.setText("Slab");
 				additionalInfo2.setText("Panel");
 				additionalInfo3.setText("French");
@@ -872,9 +860,6 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo5.setText("Drilled Holes");
 				
 				textView_area.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setVisibility(View.VISIBLE);
-				checkbox_areaMeasured2.setChecked(false);
-				checkbox_areaMeasured2.setText("Measured: ");
 				textView_areaString4.setVisibility(View.VISIBLE);
 				edittext_areaLF.setVisibility(View.VISIBLE);
 				
@@ -896,8 +881,7 @@ public class FormDialogFragment extends DialogFragment {
 				additionalInfo1.setText("Wallpaper Removed");
 				
 				additionalInfoPcs.setVisibility(View.VISIBLE);
-				additionalInfoPcs.setChecked(false);
-				additionalInfoPcs.setText("Measured");
+
 				additionalInfoPcsedit.setVisibility(View.VISIBLE);
 				additionalInfoPcsTV.setVisibility(View.VISIBLE);
 		}
@@ -933,179 +917,332 @@ public class FormDialogFragment extends DialogFragment {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						
-						
-						//INSULATION check 
-						if (general8.getVisibility() == View.VISIBLE) {							
-							
+						checkAreaSwitch=0;
+						if (field.equals("Doors Detached")){
+							String quant = empEdit.getText().toString();
+							if (! quant.isEmpty()){
+									information += quant;
+								
+							}
+							if(additionalInfo1.isChecked()){
+								information += " " + additionalInfo1.getText();
+								checkSwitch = 1;
+							}
+							if(additionalInfo2.isChecked()){
+								information += " " + additionalInfo2.getText();								checkSwitch = 1;
+							}
+							if(additionalInfo3.isChecked()){
+								information += " " + additionalInfo3.getText();								checkSwitch = 1;
+							}
+							if(additionalInfo4.isChecked()){
+								information += " " + additionalInfo4.getText();								checkSwitch = 1;
+							}
+							if(additionalInfo5.isChecked()){
+								information += " " + additionalInfo5.getText();								checkSwitch = 1;
+							}
+							if(additionalInfo6.isChecked()){
+								information += " " + additionalInfo6.getText();								checkSwitch = 1;
+							}
+							if (quant.equals("1")){
+								information += "Door Detached";
+							}
+							else{
+								information += "Doors Detached";
+							}
+							information += " Doors Detached";
 							if(general1.isChecked()){
-								information += " " + general1.getText() + " &";
+								information += " and Disposed";
+								checkSwitch = 1;
 							}
 							if(general2.isChecked()){
-								information += " " + general2.getText() + " &";
+								information += " and Saved";
+								checkSwitch = 1;
+							}
+							
+						}
+						if (field.equals("Water Extracted") || 
+								field.equals ("Carpet Removed") || 
+								field.equals("Carpet Lifted")|| 
+								field.equals("Flooring Removed") ||
+								field.equals("Drywall Removed") ||
+								field.equals("Baseboard Removed") ||
+								field.equals("Ceiling Removed") ||
+								field.equals("Paneling Removed") ||
+								field.equals("U/Pad Removed") ||
+								field.equals("Drill Hole") ||
+								field.equals("Ceiling Insultion") ||
+								field.equals("Wall Insulation") ||
+								field.equals("Sub Flooring")){
+							if(general1.isChecked()){
+								information += "25%";
+								checkSwitch = 1;
+							}
+							if(general2.isChecked()){
+								information += "50%";
+								checkSwitch = 1;
 							}
 							if(general3.isChecked()){
-								information += " " + general3.getText() + " &";
+								information += "75%";
+								checkSwitch = 1;
 							}
 							if(general4.isChecked()){
-								information += " " + general4.getText() + " &";
-							}
-							if(general5.isChecked()){
-								information += " " + general5.getText() + " &";
-							}
-							if(general6.isChecked()){
-								information += " " + general6.getText() + " &";
-							}
-							if(general7.isChecked()){
-								information += " " + general7.getText() + " &";
-							}
-							if(general8.isChecked()){
-								information += " " + general8.getText() + " &";
+								information += "100%";
+								checkSwitch = 1;
 							}
 							
-				    		information = information.substring(0, information.length()-2);
+							if (field.equals("Water Extracted")){
+								if (additionalInfo1.isChecked()){
+									information += " "+ additionalInfo1.getText();
+									checkSwitch = 1;
+								}
+								if (additionalInfo2.isChecked()){
+									information += " "+ additionalInfo2.getText();
+									checkSwitch = 1;
+								}
+								if (additionalInfo3.isChecked()){
+									information += " "+ additionalInfo3.getText();
+									checkSwitch = 1;
+								}
+								information += " "+field;
+								
+								if (checkbox_area1.isChecked()){
+									information +=" & "+checkbox_area1.getText();
+									checkSwitch = 1;
+								}
+								if (checkbox_area2.isChecked()){
+									information +=" & "+checkbox_area2.getText();
+									checkSwitch = 1;
+								}
+								if (checkbox_area3.isChecked()){
+									information +=" & "+checkbox_area3.getText();
+									checkSwitch = 1;
+								}
+								//Area String
+								if (! edittext_areaLength.getText().toString().isEmpty()){
+									information += " [ " + edittext_areaLength.getText().toString() + " x " +edittext_areaWidth.getText().toString() + " sq ft ]";
+									checkSwitch = 1;
+								}
+							}else if(field.equals("Carpet Lifted")){
+								information += " " + field;
+								if (additionalInfo1.isChecked()){
+									information += " - " + additionalInfo1.getText();
+									checkSwitch = 1;
+								}
+								if (! additionalInfoLFedit.getText().toString().isEmpty()){
+									information += " - " + additionalInfoLFedit.getText().toString();
+									checkSwitch = 1;
+								}
+								
+								if (checkbox_area1.isChecked()){
+									information += " - " + checkbox_area1.getText();
+									checkSwitch=1;
+								}
+								if (checkbox_area2.isChecked()){
+									information += " - " + checkbox_area2.getText();
+									checkSwitch=1;
+								}
+								
+								if (! edittext_areaLength.getText().toString().isEmpty()){
+									information += " [ " + edittext_areaLength.getText().toString() + " x " +edittext_areaWidth.getText().toString() + " sq ft ]";
+									checkSwitch = 1;
+								}
+							}else if (field.equals("Carpet Removed") || field.equals("U/Pad Removed")){
+									if (additionalInfo1.isChecked()){
+										information += " "+ additionalInfo1.getText();
+										checkSwitch = 1;
+									}
+									if (additionalInfo2.isChecked()){
+										information += " "+ additionalInfo2.getText();
+										checkSwitch = 1;
+									}
+									if (additionalInfo3.isChecked()){
+										information += " "+ additionalInfo3.getText();
+										checkSwitch = 1;
+									}
+									if (additionalInfo4.isChecked()){
+										information += " "+ additionalInfo4.getText();
+										checkSwitch = 1;
+									}
+									if (field.equals("Carpet Removed")){
+										information += " "+field;
+									}else{
+										information += " "+ "Underpad Removed";
+										
+									}
+										if (checkbox_area1.isChecked()){
+											information += " - " + checkbox_area1.getText();
+											checkSwitch=1;
+										}
+										if (checkbox_area2.isChecked()){
+											information += " - " + checkbox_area2.getText();
+											checkSwitch=1;
+										}
+									
+										if (! edittext_areaLength.getText().toString().isEmpty()){
+											information += " [ " + edittext_areaLength.getText().toString() + " x " +edittext_areaWidth.getText().toString() + " sq ft ]";
+											checkSwitch = 1;
+										}
+									
+								
+							}else if(field.equals("Flooring Removed") 
+									|| field.equals("Drywall Removed") 
+									|| field.equals("Baseboard Removed")
+									|| field.equals("Paneling Removed")
+									|| field.equals("Ceiling Removed")
+									|| field.equals("Ceiling Insulation")
+									|| field.equals("Wall Insulation")){
+								
+									if (additionalInfo1.isChecked()){
+										information += " "+ additionalInfo1.getText();
+										checkSwitch = 1;
+									}
+									if (additionalInfo2.isChecked()){
+										information += " "+ additionalInfo2.getText();
+										checkSwitch = 1;
+									}
+									if (additionalInfo3.isChecked()){
+										information += " "+ additionalInfo3.getText();
+										checkSwitch = 1;
+									}
+									if (additionalInfo4.isChecked()){
+										information += " "+ additionalInfo4.getText();
+										checkSwitch = 1;
+									
+									}
+									
+									if (additionalInfo5.isChecked()){
+										
+										if (field.equals("Ceiling Removed")){
+											information += " " + "Drop";
+											checkSwitch = 1;
+										}else{
+											information += " "+ additionalInfo5.getText();
+											checkSwitch = 1;
+										}
+									}
+									if (field.equals("Ceiling Insulation") || field.equals("Wall Insulation")){
+										if (additionalInfo6.isChecked()){
+										information += " " + additionalInfo6.getText();
+										checkSwitch = 1;
+										}
+									}
+									
+									information += " " + field;
+									if (field.equals("Baseboard Removed")){
+										if(checkbox_areaSaved.isChecked()){
+											information += " and Disposed";
+											checkSwitch = 1;
+										}
+										if(checkbox_areaDisposed.isChecked()){
+											information += " and Saved";
+											checkSwitch = 1;
+										}
+										
+									}
+									if (!field.equals("Ceiling Insulation") && !field.equals("Wall Insulation")){
+									
+									
+										if (checkbox_area1.isChecked()){
+											information += " - " + checkbox_area1.getText();
+											checkSwitch=1;
+										}
+										if (!field.equals("Ceiling Removed")){
+											if (checkbox_area2.isChecked()){
+											information += " - " + checkbox_area2.getText();
+											checkSwitch=1;
+											}
+										}
+									}
+										if(field.equals("Drywall Removed") || field.equals("Paneling Removed")){
+											if (checkbox_area3.isChecked()){
+												information += " - " + checkbox_area3.getText();
+												checkSwitch=1;
+											}									
+										}
+										if(field.equals("Baseboard Removed")){
+											if (checkbox_area3.isChecked()){
+												information += " - " + checkbox_area3.getText();
+												checkSwitch=1;
+											}
+											if (checkbox_area4.isChecked()){
+												information += " - " + checkbox_area3.getText();
+												checkSwitch=1;
+											}
+										
+											if (! edittext_areaLF.getText().toString().isEmpty()){
+												information += " - " + edittext_areaLF.getText().toString() + "LF";
+											}
+										}else{
+									
+											if (! edittext_areaLength.getText().toString().isEmpty()){
+												information += " [ " + edittext_areaLength.getText().toString() + " x " +edittext_areaWidth.getText().toString() + " sq ft ]";
+												checkSwitch = 1;
+											}}
+							}else if (field.equals("Drill Hole")){
+								information += " Drying Holes Drilled";
+								if (! edittext_areaLF.getText().toString().isEmpty()){
+									information += " - " + edittext_areaLF.getText().toString() + "LF";
+								}
+							}
+							else{
+								//Sub Flooring
+								if (additionalInfo1.isChecked()){
+									information += " "+ additionalInfo1.getText();
+									checkSwitch = 1;
+								}
+								if (additionalInfo2.isChecked()){
+									information += " "+ additionalInfo2.getText();
+									checkSwitch = 1;
+								}
+								if (additionalInfo3.isChecked()){
+									information += " "+ additionalInfo3.getText();
+									checkSwitch = 1;
+								}
+								if (additionalInfo4.isChecked()){
+									information += " "+ additionalInfo4.getText();
+									checkSwitch = 1;
+								}
+								
+								if (additionalInfo5.isChecked()){
+									information += " "+ additionalInfo5.getText();
+									checkSwitch = 1;
+								}
+								if (additionalInfo6.isChecked()){
+									information += " "+ additionalInfo3.getText();
+									checkSwitch = 1;
+								}
+								if (additionalInfo7.isChecked()){
+									information += " "+ additionalInfo4.getText();
+									checkSwitch = 1;
+								}
+								
+								if (additionalInfo8.isChecked()){
+									information += " "+ additionalInfo5.getText();
+									checkSwitch = 1;
+								}
+								
+								information += " " + field;
+								
+								if (checkbox_area1.isChecked()){
+									information += " - " + checkbox_area1.getText();
+									checkSwitch=1;
+								}
+								if (checkbox_area2.isChecked()){
+									information += " - " + checkbox_area2.getText();
+									checkSwitch=1;
+								}
+								
+								if (! edittext_areaLength.getText().toString().isEmpty()){
+									information += " [ " + edittext_areaLength.getText().toString() + " x " +edittext_areaWidth.getText().toString() + " sq ft ]";
+									checkSwitch = 1;
+								}
+							}
 							
-						}else{
-							
-							if(general1.isChecked()){
-								information += " " + general1.getText();
-							}
-							else if(general2.isChecked()){
-								information += " " + general2.getText();
-							}
-							else if(general3.isChecked()){
-								information += " " + general3.getText();
-							}
-							else if(general4.isChecked()){
-								information += " " + general4.getText();
-							}
+								
+						}
+
+					
 						
-						}
-						
-						
-						checkSwitch = 0;
-						//additional info
-						if(additionalInfo1.isChecked()){
-							information += " " + additionalInfo1.getText() + " &";
-							checkSwitch = 1;
-						}
-						if(additionalInfo2.isChecked()){
-							information += " " + additionalInfo2.getText() + " &";
-							checkSwitch = 1;
-						}
-						if(additionalInfo3.isChecked()){
-							information += " " + additionalInfo3.getText() + " &";
-							checkSwitch = 1;
-						}
-						if(additionalInfo4.isChecked()){
-							information += " " + additionalInfo4.getText() + " &";
-							checkSwitch = 1;
-						}
-						if(additionalInfo5.isChecked()){
-							information += " " + additionalInfo5.getText() + " &";
-							checkSwitch = 1;
-						}
-						if(additionalInfo6.isChecked()){
-							information += " " + additionalInfo6.getText() + " &";
-							checkSwitch = 1;
-						}
-						if(additionalInfo7.isChecked()){
-							information += " " + additionalInfo7.getText() + " &";
-							checkSwitch = 1;
-						}
-						if(additionalInfo8.isChecked()){
-							information += " " + additionalInfo8.getText() + " &";
-							checkSwitch = 1;
-						}
-						if(additionalInfoLF.isChecked()){
-							information += " " + additionalInfoLFedit.getText() + " LF &";
-							checkSwitch = 1;
-						}
-						if(additionalInfoPcs.isChecked()){
-							information += " " + additionalInfoPcsedit.getText() + " Pcs &";
-							checkSwitch = 1;
-						}
-						if(additionalInfoContentsManip.isChecked()){
-							information += " # of Crew " + additionalInfoContentsManipedit.getText() + " x " + additionalInfoContentsManipedit2.getText() + " HR &" ;
-							checkSwitch = 1;
-						}
-						if(checkAdditionalNotes == 1){
-							information += " " + additionalNotes.getText();
-						}
-						if(checkSwitch == 1){
-							information = information.substring(0, information.length()-2);
-						}
-						
-						checkAreaSwitch = 0;
-						if(checkbox_areaMeasured.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information += " L " + edittext_areaLength.getText() + "  x W " + edittext_areaWidth.getText() + "Sq Ft, ";
-						}
-						if(checkbox_areaMeasured2.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information +=  " " + edittext_areaLF.getText() + " LF, ";
-						}
-						if(checkbox_areaDisposed.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information +=  " " + checkbox_areaDisposed.getText() + ", ";
-						}
-						if(checkbox_areaSaved.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information +=  " " + checkbox_areaSaved.getText() + ", ";
-						}
-						if(checkbox_area1.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information +=  " " + checkbox_area1.getText() + ", ";
-						}
-						if(checkbox_area2.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information +=  " " + checkbox_area2.getText() + ", ";
-						}
-						if(checkbox_area3.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information +=  " " + checkbox_area3.getText() + ", ";
-						}
-						if(checkbox_area4.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information +=  " " + checkbox_area4.getText() + ", ";
-						}
-						if(checkbox_chair.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information +=  " Chair Rail " + edittext_areaNotes1.getText() + "LF, ";
-						}
-						if(checkbox_numStairs.isChecked()){
-							if (checkAreaSwitch == 0){
-								information += " -";
-								checkAreaSwitch = 1;
-							}
-							information +=  edittext_areaNotes2.getText() + "Stairs, ";
-						}
 						if(checkAreaSwitch == 1){
 							information = information.substring(0, information.length()-2);
 						}

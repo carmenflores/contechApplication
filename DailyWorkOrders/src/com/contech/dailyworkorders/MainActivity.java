@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 import android.app.Activity;
@@ -30,9 +31,7 @@ import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 
-
-
-public class MainActivity extends Activity implements NewRoomDialogFragment.NoticeDialogListener, SubmitDialogFragment.NoticeDialogListener, FileLoaderFragment.NoticeDialogListener {
+public class MainActivity extends Activity implements NewRoomDialogFragment.NoticeDialogListener, SubmitDialogFragment.NoticeDialogListener, FileLoaderFragment.NoticeDialogListener, AddWorkerFragment.NoticeDialogListener {
 	
 	private static final int REQUEST_CODE = 10;
 	
@@ -40,6 +39,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	private ArrayAdapter<Room> adapter;
 	private ArrayList<Room> rooms;
 	
+	public String completedForm;
 	public EditText insuredEdit;
 	public EditText jobNumberEdit;
 	public EditText addressEdit;
@@ -101,11 +101,13 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	private RadioGroup RGclassWat;
 	private RadioGroup RGcontentsMan;
 	
+	private EditText workerInfo;
+	private TextView workerTitle;
 	private String subject;
 	private String path;
 	private ArrayList<String> fields;
 	
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -113,8 +115,9 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		fields = new ArrayList<String>();
+		rooms = ((DailyWorkOrderApplication) this.getApplication()).getRooms();
         /*CREATE LISTVIEW*/
-        listView = (ListView) findViewById(R.id.listView);
+/*        listView = (ListView) findViewById(R.id.listView);
         rooms = ((DailyWorkOrderApplication) this.getApplication()).getRooms();
 	    adapter = new ArrayAdapter<Room>(this, android.R.layout.simple_list_item_1, android.R.id.text1, rooms);
 	    listView.setAdapter(adapter);    
@@ -127,20 +130,39 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 				startActivity(intent);
 			}
 
-		});
-	    
-
+		});*/
+	    workerInfo = (EditText) findViewById(R.id.worker);
+	    insuredEdit = (EditText) findViewById(R.id.insured);
 	    Intent textIntent = getIntent();
 	    Uri data = textIntent.getData();
 	    if (data != null){
 			if (textIntent.getType().equals("text/plain")) {
+				if (insuredEdit.getText().toString().isEmpty()){
 				path = data.toString();
 	            int start= path.indexOf("/mnt");
 	            path=path.substring(start);
 	            showFileLoaderDialog();
+				}
 			}
 	            
 	    }
+	    
+	    Button workerButton = (Button) findViewById(R.id.button_addWorker);
+	    workerButton.setOnClickListener(new View.OnClickListener(){
+	    	public void onClick(View v){
+	    		showAddWorkerDialog();
+	    	}
+	    });
+	    
+	    Button viewButton = (Button) findViewById(R.id.view_rooms);
+	    viewButton.setOnClickListener(new View.OnClickListener(){
+	    	public void onClick(View v){
+	    		Intent intent = new Intent(MainActivity.this, RoomsActivity.class);
+	    		intent.putExtra("isNewRoom", false);
+	    	    MainActivity.this.startActivity(intent);
+	    		
+	    	}
+	    });
 	    
 	    
 	    Button button = (Button) findViewById(R.id.button_addRoom);	
@@ -150,7 +172,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
                
 	    	}
 	    });
-		insuredEdit = (EditText) findViewById(R.id.insured);
+		
 		jobNumberEdit = (EditText) findViewById(R.id.jobNumber);
 		addressEdit = (EditText) findViewById(R.id.address);
 		Button map_button = (Button) findViewById(R.id.display_map);
@@ -218,7 +240,7 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    	public void onClick(View v){
 		    		 fields = new ArrayList<String>();
 		    		 subject ="";
-
+		    		 completedForm ="";
 		    		 String jobNumber = jobNumberEdit.getText().toString();
 		    		 subject += jobNumber+ " ";
 		    		 fields.add(jobNumber + " ");
@@ -259,10 +281,11 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    			 String selection = (String) btn.getText();
 		    			 if (selection.contentEquals("Other")){
 		    				 EditText other = (EditText) findViewById(R.id.otherText);
-		    				 selection = other.getText().toString();
-		    				 
+		    				 selection = other.getText().toString();		 
 		    			 }
-		    			 fields.add("Source " + selection + " / "); 
+		    			 if (!selection.equals("None") || !selection .equals("")){
+		    				 fields.add("Source " + selection + " / ");
+		    			 }
 		    	    }
 		    		 
 		    		 RGwaterCat = (RadioGroup) findViewById(R.id.RGwaterCat);
@@ -272,8 +295,10 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    			 int radioId = RGwaterCat.indexOfChild(radioButton);
 		    			 RadioButton btn = (RadioButton) RGwaterCat.getChildAt(radioId);
 		    			 String selection = (String) btn.getText();
-		    			 fields.add("Water cat " + selection.split(" ")[0] + " / "); 
-		    	    }
+		    			 if (!selection.equals("None")){
+		    				 fields.add("Water cat " + selection.split(" ")[0] + " / "); 
+		    			 }
+		    	     }
 		    		 RGclassWat = (RadioGroup) findViewById(R.id.RGclassWat);
 		    		 if ( RGclassWat.getCheckedRadioButtonId()!= -1){
 		    			 int id=  RGclassWat.getCheckedRadioButtonId();
@@ -281,7 +306,9 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    			 int radioId =  RGclassWat.indexOfChild(radioButton);
 		    			 RadioButton btn = (RadioButton)  RGclassWat.getChildAt(radioId);
 		    			 String selection = (String) btn.getText();
-		    			 fields.add("Class " + selection + " / "); 
+		    			 if (!selection.equals("None")){
+		    				 fields.add("Class " + selection + " / ");
+		    			 }
 		    	    }
 		    		islockBoxInstalled = (CheckBox) findViewById(R.id.lockBoxInstalled);
 		    		isreadingsTaken = (CheckBox) findViewById(R.id.readingsTaken);
@@ -306,7 +333,9 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    			 int radioId =  RGcontentsMan.indexOfChild(radioButton);
 		    			 RadioButton btn = (RadioButton)  RGcontentsMan.getChildAt(radioId);
 		    			 String selection = (String) btn.getText();
-		    			 fields.add(selection + " content manipulation /"); 
+		    			 if (!selection.equals("None")){
+		    				 fields.add(selection + " content manipulation /");
+		    			 }
 		    	    }
 		    		 crewEdit = (EditText) findViewById(R.id.crewText);
 		    		 String crewNum = crewEdit.getText().toString();
@@ -529,7 +558,9 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    			 int radioId =  RGgarbage.indexOfChild(radioButton);
 		    			 RadioButton btn = (RadioButton)  RGgarbage.getChildAt(radioId);
 		    			 String selection = (String) btn.getText();
-		    			 fields.add("Garbage disposed: "+ selection + "\n\n"); 
+		    			 if (!selection.equals("None")){
+		    				 fields.add("Garbage disposed: "+ selection + "\n\n"); 
+		    			 }
 		    	    }
 		    		 
 		    		 RGgtruck = (RadioGroup) findViewById(R.id.RGgtruck);
@@ -539,13 +570,19 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		    			 int radioId =  RGgtruck.indexOfChild(radioButton);
 		    			 RadioButton btn = (RadioButton)  RGgtruck.getChildAt(radioId);
 		    			 String selection = (String) btn.getText();
-		    			 fields.add("Truck used: "+ selection + "\n\n"); 
+		    			 if (!selection.equals("None")){
+		    				 fields.add("Truck used: "+ selection + "\n\n");
+		    			 }
 		    	    }
 		    		 
 		    		 notes = (EditText) findViewById(R.id.noteSection);
 		    		 String notesString = notes.getText().toString();
 		    		 if(notesString.length() > 0){
 		    			 fields.add("Instructions/Notes for next crew on site: \n" + notesString +"\n"); 
+		    		 }
+		    		 String workers = workerInfo.getText().toString();
+		    		 if (workers.length() >0){
+		    			 fields.add("Workers: \n"+ workers);
 		    		 }
 
 		    		 showSubmitDialog();
@@ -567,6 +604,11 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 		newFragment.show(getFragmentManager(), "room");
 	}
 	
+	private void showAddWorkerDialog(){
+		DialogFragment newFragment = AddWorkerFragment.newInstance();
+		newFragment.show(getFragmentManager(), "workers");
+	}
+	
 	private void showSubmitDialog() {
 		DialogFragment newSubmitFragment = SubmitDialogFragment.newInstance(fields, subject);
 		newSubmitFragment.show(getFragmentManager(), "submit");
@@ -578,14 +620,53 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 	}
 	
 	public void onSubmitDialogPositiveClick(DialogFragment dialog){
-		/*((DailyWorkOrderApplication) this.getApplication()).clearRooms();
-		adapter.notifyDataSetChanged();*/
+
 	}
 	
 	public void onFileLoaderDialogPositiveClick(DialogFragment dialog, String insuredName, String address, String jobNum){
 		insuredEdit.setText(insuredName);
 		jobNumberEdit.setText(jobNum);
 		addressEdit.setText(address);
+	}
+	
+	public void onAddWorkerFragmentPositiveClick(DialogFragment dialog, String workerIn, boolean isChecked){
+		workerTitle = (TextView) findViewById(R.id.workerTitle);
+		completedForm ="";
+		String oldInfo =workerInfo.getText().toString();
+		if (workerIn.length() > 15){
+			workerTitle.setVisibility(View.VISIBLE);
+			workerInfo.setVisibility(View.VISIBLE);
+			if (isChecked){
+				completedForm = "Form Completed By: " +workerIn.split(" ")[0];			
+			}
+			//if this is not the first entry
+			if (oldInfo.length() > 0){
+				if (oldInfo.contains("\n\n")){
+					String[] oldArray = oldInfo.split("\n\n");
+					String oldworkers = oldArray[0];
+					String completedBy = oldArray[1];			
+					workerInfo.setText(oldworkers + "\n" + workerIn + "\n\n" + completedBy);
+					
+				}
+				else{
+					if (isChecked){
+						workerInfo.setText(oldInfo + "\n" + workerIn + "\n\n" + completedForm);
+					}
+					else{
+						workerInfo.setText(oldInfo + "\n" + workerIn);
+					}
+				}
+			}
+			//if this is the first entry
+			else{
+				if (isChecked){
+					workerInfo.setText(workerIn + "\n\n" + completedForm);
+				}
+				else{
+					workerInfo.setText(workerIn);
+				}
+			}
+		}
 	}
 	@Override
 	public void onNewRoomDialogPositiveClick(DialogFragment dialog,
@@ -594,12 +675,14 @@ public class MainActivity extends Activity implements NewRoomDialogFragment.Noti
 				Toast.makeText(this, "Form fields are incomplete", Toast.LENGTH_SHORT).show();
 			}
 			else{
-			Toast.makeText(this, "Making your room", Toast.LENGTH_SHORT).show();		
 			rooms.add(new Room(name, length, width, height, formFields));
 			((DailyWorkOrderApplication) this.getApplication()).storeRoom();
-			adapter.notifyDataSetChanged();
+			Intent intent = new Intent(this, RoomsActivity.class);
+			intent.putExtra("isNewRoom", true);
+    	    startActivity(intent);
 			}
 	}
+
 
 	
 }

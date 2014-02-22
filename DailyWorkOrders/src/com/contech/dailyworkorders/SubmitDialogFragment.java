@@ -20,10 +20,9 @@ import android.widget.TextView;
 /* ------- DIALOG FOR CREATING NEW ROOML ------ */
 public class SubmitDialogFragment extends DialogFragment {
 	EditText message;
-	EditText to;
-	EditText cc;
 	EditText subject;
 	ArrayList<String> formFields;
+	ArrayList<Room> rooms;
 	/* TO SEND DATA BACK TO ACTIVITY */
 	public interface NoticeDialogListener {
 		public void onSubmitDialogPositiveClick(DialogFragment dialog);
@@ -62,18 +61,26 @@ public class SubmitDialogFragment extends DialogFragment {
 				R.layout.fragment_submit, null);
 		builder.setView(view);
 		builder.setTitle("Overview");
+		rooms = ((DailyWorkOrderApplication) this.getActivity().getApplication()).getRooms();
 		formFields = new ArrayList<String>();
 		formFields = getArguments().getStringArrayList("fields");
 		String subj = getArguments().getString("subj");
 		message = (EditText) view.findViewById(R.id.info1);
-		cc = (EditText) view.findViewById(R.id.editTextcc);
-		to = (EditText) view.findViewById(R.id.editTextTo);
 		subject = (EditText) view.findViewById(R.id.editTextSubject);
 		
 		String body = "";
 		
 		for ( String s : formFields){
 			body += s;
+		}
+		
+		for (Room r : rooms){
+			body += r.toString().toUpperCase()+"\n";
+			HashMap<String, String> map = r.getRoom_specs();
+			for (HashMap.Entry<String,String> entry: map.entrySet()){
+				body += entry.getValue() + "\n";
+			}
+			body += "\n";
 		}
 		message.setText(body);
 		subject.setText(subj);
@@ -84,14 +91,10 @@ public class SubmitDialogFragment extends DialogFragment {
 					public void onClick(DialogInterface dialog, int which) {
 						mListener.onSubmitDialogPositiveClick(
 								SubmitDialogFragment.this);
-						String recipient = to.getText().toString();
 						String sub = subject.getText().toString();
 						String mes = message.getText().toString();
-						String ccr = cc.getText().toString();
 			            Intent email = new Intent(Intent.ACTION_SEND);
-			            email.putExtra(Intent.EXTRA_EMAIL, new String[] { recipient });
 			            email.putExtra(Intent.EXTRA_SUBJECT, sub);
-			            email.putExtra(Intent.EXTRA_CC, new String[]{ccr});
 			            email.putExtra(Intent.EXTRA_TEXT, mes);
 
 			            // need this to prompts email client only
@@ -99,7 +102,7 @@ public class SubmitDialogFragment extends DialogFragment {
 
 			            startActivity(Intent.createChooser(email, "Choose an Email client :"));
 
-						
+						rooms.clear();
 						dialog.dismiss();
 					}
 				});

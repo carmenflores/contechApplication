@@ -1,0 +1,49 @@
+if (field.equals("Ceiling Insulation") || field.equals("Wall Insulation")){
+			
+			amountHeaderTV.setVisibility(View.VISIBLE);
+			
+			general3.setVisibility(View.VISIBLE);
+			general3.setChecked(false);
+			
+			general4.setVisibility(View.VISIBLE);
+			general4.setChecked(false);
+			
+			if (field.equals("Ceiling Insulation")){
+			general1.setText("25% C");
+			general2.setText("50% C");
+			general3.setText("75% C");
+			general4.setText("100% C");
+			}else{
+				general1.setText("25% W");
+				general2.setText("50% W");
+				general3.setText("75% W");
+				general4.setText("100% W");
+			}
+			additionalInfo1.setVisibility(View.VISIBLE);
+			additionalInfo1.setChecked(false);
+			additionalInfo2.setVisibility(View.VISIBLE);
+			additionalInfo2.setChecked(false);
+			additionalInfo3.setVisibility(View.VISIBLE);
+			additionalInfo3.setChecked(false);
+			additionalInfo4.setVisibility(View.VISIBLE);
+			additionalInfo4.setChecked(false);
+			additionalInfo5.setVisibility(View.VISIBLE);
+			additionalInfo5.setChecked(false);
+			additionalInfo6.setVisibility(View.VISIBLE);
+			additionalInfo6.setChecked(false);
+			
+			additionalInfo1.setText(Html.fromHtml("Pink- R-12<sub> 4\"</sub>"));
+			additionalInfo2.setText(Html.fromHtml("Pink- R-20<sub> 6\"</sub>"));
+			additionalInfo3.setText("Rigid Foam");
+			additionalInfo4.setText("Roxul");
+			additionalInfo5.setText("Blow-in");
+			additionalInfo6.setText("Batt");
+			
+			
+			areaMeasured.setVisibility(View.VISIBLE);
+			textView_areaString1.setVisibility(View.VISIBLE);
+			edittext_areaLength.setVisibility(View.VISIBLE);
+			textView_areaString2.setVisibility(View.VISIBLE);
+			edittext_areaWidth.setVisibility(View.VISIBLE);
+			textView_areaString3.setVisibility(View.VISIBLE);
+			

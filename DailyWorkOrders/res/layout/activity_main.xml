@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
- <LinearLayout
+ <LinearLayout 
        android:layout_width="fill_parent"
        android:layout_height="fill_parent"
        android:orientation="vertical"
-       xmlns:tools="http://schemas.android.com/tools"
        xmlns:android="http://schemas.android.com/apk/res/android">
        <ScrollView
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
             <LinearLayout 
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
@@ -132,6 +129,12 @@
 		 		android:text="3 Black"
 		 		android:layout_marginRight="10sp" 
          	/>
+          	<RadioButton android:id="@+id/waterCat4"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+		 		android:text="None"
+		 		android:layout_marginRight="10sp" 
+         	/>
 
 		</RadioGroup>
         </TableRow>
@@ -174,6 +177,11 @@
         	android:layout_height="wrap_content"
 		 	android:text="4"
          	/>
+        	<RadioButton android:id="@+id/classWat5"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="None"
+         	/>
 		</RadioGroup>
      </TableRow>
      <TableRow>
@@ -206,6 +214,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 		android:text="Large"
+		android:layout_marginRight="12sp"
+         />
+        <RadioButton android:id="@+id/contents4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:text="None"
 		android:layout_marginRight="12sp"
          />
 		</RadioGroup>
@@ -851,6 +865,12 @@
 		 	android:text="Full Bin"
 		 	android:layout_marginRight="10sp" 
          	/>
+          	<RadioButton android:id="@+id/garbage4"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="None"
+		 	android:layout_marginRight="19sp" 
+         	/>
 		</RadioGroup>
 	</TableRow>
 	        <TableRow
@@ -880,7 +900,13 @@
         	android:layout_height="wrap_content"
 		 	android:text="Cargo Van"
 		 	android:layout_marginRight="10sp" 
-         	/>   
+         	/>
+    		<RadioButton android:id="@+id/truck3"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+		 	android:text="None"
+		 	android:layout_marginRight="10sp" 
+         	/>
 		</RadioGroup>
 		</TableRow>
 	</TableLayout>
@@ -902,16 +928,44 @@
             > 
         </EditText>
         
-          <TableLayout
+       <TableLayout
          android:id="@+id/buttonSection"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content" >
 
      <TableRow 
-        android:id="@+id/buttonRow"
+        android:id="@+id/workerRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-                 	    
+        <Button
+        android:id = "@+id/button_addWorker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_worker" />
+	
+        </TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/workerTitle"
+        	android:text="Workers"
+        	android:textStyle="bold"
+        	android:textSize="18sp"
+        	android:layout_marginTop="15sp"
+        	android:layout_marginLeft="15sp"
+        	android:visibility="gone"/>
+            
+        <EditText
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/worker"
+        	android:visibility="gone"
+         > </EditText>
+
+        <TableRow 
+        android:id="@+id/buttonRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">    
     	<Button
         android:id = "@+id/button_addRoom"
         android:layout_width="wrap_content"
@@ -926,26 +980,12 @@
      </TableRow>
      
      </TableLayout>
-	 <TextView
-        	android:layout_width="fill_parent"
-        	android:layout_height="wrap_content"
-        	android:textStyle="bold"
-        	android:textSize="16sp"
-        	android:layout_marginRight="12sp"
-        	android:text="Rooms:"
-        	/>
-     <ListView
-        android:id="@+id/listView"
+      <Button
+        android:id = "@+id/view_rooms"
         android:layout_width="fill_parent"
-        android:layout_height="500dp" 
-         >
-     
-    </ListView>
+        android:layout_height="wrap_content"
+        android:text="View Rooms" />
+
    </LinearLayout>
-
 </ScrollView>
-
-</LinearLayout>    
-
-    
-
+</LinearLayout>

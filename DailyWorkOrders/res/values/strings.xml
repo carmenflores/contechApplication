@@ -48,7 +48,7 @@
     <string name = "accessPanelRemoved">Access Panel Removed</string>
     <string name = "contentsManip">Contents Manipulation</string>
 	<string name = "additionalNotes">Additional Notes</string>
-        <string name = "area">Area: </string>
+	<string name = "area">Area: </string>
 	
      <string name="students_pref_file_key">com.contech.dailyworkorders.roomsInfo</string>
 	<item name="list" type="id"/>
@@ -67,8 +67,9 @@
 	<string name="water_category">Water Category :</string>
 	<string name="class_of_water">Class of Water :</string>
 	<string name="please_specify">Please specify...</string>
-	<string name="additional_info">Additional Info.</string>
-	<string name="notes">Notes :</string>	
+		<string name="additional_info">Additional Info.</string>
+		<string name="notes">Notes :</string>	
+		
 	
 	<string name="crew">Crew</string>
 	<string name="hours">Hours</string>
@@ -80,4 +81,5 @@
 	<string name= "pm"> PM : </string>
 	<string name="add_sample"> Add Samples </string>
 	<string name="map">Get Directions</string>
+	<string name="add_worker">Add Worker</string>
 </resources>

@@ -11,23 +11,7 @@
                   android:layout_height="wrap_content"
                   android:background="#ffffff"
                   android:orientation="vertical">
-                  
-          <EditText
-            android:id="@+id/editTextTo"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="To:"
-            android:inputType="textMultiLine"
-             >
-             </EditText>
-                  <EditText
-            android:id="@+id/editTextcc"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="cc:"
-            android:inputType="textMultiLine"
-             >
-             </EditText>
+
                   <EditText
             android:id="@+id/editTextSubject"
             android:layout_width="fill_parent"

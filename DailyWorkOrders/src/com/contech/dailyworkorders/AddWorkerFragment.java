@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.contech.dailyworkorders.FileLoaderFragment.NoticeDialogListener;
+import com.contech.dailyworkorders.R.id;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -26,29 +27,29 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 
 
-public class FileLoaderFragment extends DialogFragment {
+public class AddWorkerFragment extends DialogFragment {
 	// global class variables
-	TextView textView;
-	String pathName, name, address, jobNum;
-	BufferedReader reader;
+	EditText wNameSection, wTimeIn, wTimeOut, wTimeInM, wTimeOutM, wTotalTime;
+	CheckBox didComplete;
+	String wName,info;
 	/* TO SEND DATA BACK TO ACTIVITY */
 	public interface NoticeDialogListener {
-		public void onFileLoaderDialogPositiveClick(DialogFragment dialog,
-				String jobNumber, String address, String Insured);
+		public void onAddWorkerFragmentPositiveClick(DialogFragment dialog,
+				String info, boolean didComplete);
 	}
 
 	NoticeDialogListener mListener;
 
-	public static FileLoaderFragment newInstance(String path) {
-		FileLoaderFragment frag = new FileLoaderFragment();
-		Bundle args = new Bundle();
-		args.putString("path", path);
-		frag.setArguments(args);
+	public static AddWorkerFragment newInstance() {
+		AddWorkerFragment frag = new AddWorkerFragment();
 		return frag;
 	}
 	
@@ -71,55 +72,33 @@ public class FileLoaderFragment extends DialogFragment {
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		View view = getActivity().getLayoutInflater().inflate(
-				R.layout.fragment_file_loader, null);
+				R.layout.fragment_add_worker, null);
 		builder.setView(view);
-		builder.setTitle("File Loader");
+		builder.setTitle("Add Worker");
 		
-
-		textView = (TextView) view.findViewById(R.id.pathname);
-		textView.setText("File Loaded Successfully");
-		pathName = getArguments().getString("path");
-			try {
-				reader = null;
-				reader = new BufferedReader(new FileReader(pathName));
-				String line = null;
-				int counter = 0;
-				String[] pathArray =pathName.split("/");
-				jobNum = pathArray[pathArray.length-1];
-				jobNum = jobNum.substring(0, jobNum.length()-4);
-				while ((line = reader.readLine()) != null) {
-					if (counter == 0){
-						name=line;
-					}
-					if (counter == 1){
-						address=line;
-					}
-					if(counter >= 2){
-					
-						break;
-					}
-					counter ++;
-				}
-			}
-			catch (FileNotFoundException e1) {
-						e1.printStackTrace();
-			} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-		    }finally{
-		    	try {
-					reader.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		    }
+			didComplete = (CheckBox)view.findViewById(R.id.completedBy);
+			didComplete.setChecked(false);
 			builder.setPositiveButton(
-					"Okay",
+					"Add",
 					new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
-							mListener.onFileLoaderDialogPositiveClick(FileLoaderFragment.this, name, address, jobNum);
+							wTimeIn = (EditText)  ((AlertDialog) dialog).findViewById(R.id.wTimeInHour);
+							wTimeOut = (EditText)  ((AlertDialog) dialog).findViewById(R.id.wTimeOutHour);
+							wTimeInM = (EditText)  ((AlertDialog) dialog).findViewById(R.id.wTimeInMin);
+							wTimeOutM = (EditText)  ((AlertDialog) dialog).findViewById(R.id.wTimeOutMin);
+							wNameSection = (EditText)  ((AlertDialog) dialog).findViewById(R.id.wNameSection);
+							wTotalTime = (EditText)  ((AlertDialog) dialog).findViewById(R.id.wTotal);
+							info="";
+							wName="";
+							wName = wNameSection.getText().toString();
+							String timeIn = wTimeIn.getText().toString() +":"+wTimeInM.getText().toString();
+							String timeOut = wTimeOut.getText().toString() +":"+wTimeOutM.getText().toString();
+							String totalTime = wTotalTime.getText().toString();
+							
+							info = wName+" "+timeIn+" - "+timeOut+ "  Total: "+totalTime;
+							mListener.onAddWorkerFragmentPositiveClick(
+									AddWorkerFragment.this, info, didComplete.isChecked());
 							dialog.dismiss();
 						}
 			
