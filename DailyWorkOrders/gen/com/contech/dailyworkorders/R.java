@@ -116,6 +116,7 @@ public final class R {
         public static final int crewSection=0x7f06002f;
         public static final int crewText=0x7f060031;
         public static final int dehumidifiers=0x7f060053;
+        public static final int delete_group=0x7f0600f0;
         public static final int display_map=0x7f06000b;
         public static final int editTextSubject=0x7f0600ab;
         public static final int edittext_additionalInfo1=0x7f0600c7;
@@ -167,6 +168,7 @@ public final class R {
         public static final int materialsSection=0x7f060059;
         public static final int middleSection=0x7f06000c;
         public static final int middleSection2=0x7f060029;
+        public static final int modify_group=0x7f0600ef;
         public static final int my_button=0x7f060000;
         public static final int name_field=0x7f060004;
         public static final int noteSection=0x7f060071;
@@ -277,6 +279,7 @@ public final class R {
     }
     public static final class menu {
         public static final int main=0x7f080000;
+        public static final int room_group_menu=0x7f080001;
     }
     public static final class string {
         public static final int accessPanelRemoved=0x7f050021;
